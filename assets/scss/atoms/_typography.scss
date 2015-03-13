@@ -1,0 +1,66 @@
+@mixin body-font {
+	font-family: Georgia, serif;
+	font-size: $base-font-size;
+	line-height: 1.25;
+	@include mq($bp-tng, true) {
+		line-height: 1.375;
+	}
+}
+
+@mixin header-font {
+	font-family: sans-serif;
+	font-weight: bold;
+}
+
+@mixin header-1 {
+	@include header-font;
+	font-size: 2em;
+	line-height: 1.25;
+	@include mq($bp-tng) {
+		font-size: 2.5em;
+		line-height: 1.125;
+	}
+	@include mq($bp-ds9, true) {
+		font-size: 3em;
+		line-height: 1.05;
+	}
+}
+
+@mixin header-2 {
+	@include header-font;
+	font-size: 1.375em;
+	font-style: italic;
+	text-transform: uppercase;
+	line-height: 1.13636364;
+	@include mq($bp-tng) {
+		font-size: 1.5em;
+		line-height: 1.25;
+	}
+	@include mq($bp-ds9, true) {
+		font-size: 1.75em;
+		line-height: 1.25;
+	}
+}
+
+@mixin header-3 {
+	@include header-font;
+	text-transform: uppercase;
+}
+
+@mixin header-4 {
+	@include header-font;
+	font-size: .9375em;
+	text-transform: uppercase;
+}
+
+@mixin header-5 {
+	@include header-font;
+	font-size: .833333333em;
+	font-weight: normal;
+	text-transform: uppercase;
+	letter-spacing: 1px;
+}
+
+body {
+	@include body-font;
+}
