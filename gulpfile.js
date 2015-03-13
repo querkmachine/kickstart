@@ -74,7 +74,7 @@ gulp.task("scripts-vendor", function() {
 gulp.task("scripts", function() {
 	gulp.src(
 		[
-			"./assets/js/scripts/scripts.js",
+			"./assets/js/scripts/app.js",
 			"./assets/js/scripts/*.js"
 		]
 	)
