@@ -1,0 +1,31 @@
+// Breakpoints 
+$bp-ent: "only screen";
+$bp-tos: "only screen and (min-width: 600px)";
+$bp-tng: "only screen and (min-width: 770px)";
+$bp-ds9: "only screen and (min-width: 1024px)";
+$bp-voy: "only screen and (min-width: 1280px)";
+
+// Font size
+$base-font-size: 16px;
+
+// Colour scheme
+$palette: (
+	brand: (
+	),
+	section: (
+	),
+	context: (
+		success: #4caf50,
+		warning: #ffc107,
+		error: #f44336
+	),
+	shade: (
+		white: #fff,
+		x-light: #eaeaee,
+		light: #c7c7cc,
+		base: #727277,
+		dark: #424244,
+		x-dark: #202022,
+		black: #000
+	)
+);

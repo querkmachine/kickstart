@@ -36,7 +36,7 @@ gulp.task("stylesheets", function() {
 	.pipe(sass(
 		{
 			errLogToConsole: true,
-			outputStyle: "nested"
+			outputStyle: "compressed"
 		}
 	))
 	.pipe(autoprefixer(
