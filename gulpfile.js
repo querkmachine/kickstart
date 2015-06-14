@@ -22,17 +22,21 @@ var sass = require("gulp-sass");
 var autoprefixer = require("gulp-autoprefixer");
 var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
+var newer = require("gulp-newer");
 var imagemin = require("gulp-imagemin");
 
 gulp.task("default", function() {
-	gulp.watch("./assets/scss/{,*/}*.scss", ["stylesheets"]);
-	gulp.watch("./assets/js/scripts/{,*/}*.js", ["scripts"]);
-	gulp.watch("./assets/js/vendor/{,*/}*.js", ["scripts-vendor"]);
-	gulp.watch("./assets/js/preload/{,*/}*.js", ["scripts-preload"]);
+	gulp.watch("./src/scss/{,*/}*.scss", ["stylesheets"]);
+	gulp.watch("./src/js/scripts/{,*/}*.js", ["scripts"]);
+	gulp.watch("./src/js/vendor/{,*/}*.js", ["scripts-vendor"]);
+	gulp.watch("./src/js/preload/{,*/}*.js", ["scripts-preload"]);
+	gulp.watch("./src/type/{,*/}*.js", ["type"]);
 });
 
+gulp.task("force", ["stylesheets", "scripts-preload", "scripts-vendor", "scripts", "images", "type"]);
+
 gulp.task("stylesheets", function() {
-	gulp.src("./assets/scss/stylesheet.scss")
+	gulp.src("./src/scss/stylesheet.scss")
 	.pipe(sass(
 		{
 			errLogToConsole: true,
@@ -45,53 +49,59 @@ gulp.task("stylesheets", function() {
 			cascade: true
 		}
 	))
-	.pipe(gulp.dest("./assets/css"))
+	.pipe(gulp.dest("./dst/css"))
 });
 
 gulp.task("scripts-preload", function() {
 	gulp.src(
 		[
-			"./assets/js/preload/*.js"
+			"./src/js/preload/*.js"
 		]
 	)
 	.pipe(uglify())
 	.pipe(concat("preload.js"))
-	.pipe(gulp.dest("./assets/js"))
+	.pipe(gulp.dest("./dst/js"))
 });
 
 gulp.task("scripts-vendor", function() {
 	gulp.src(
 		[
-			"./assets/js/vendor/jquery-1.11.2.min.js",
-			"./assets/js/vendor/*.js"
+			"./src/js/vendor/jquery-1.11.3.min.js",
+			"./src/js/vendor/*.js"
 		]
 	)
 	.pipe(uglify())
 	.pipe(concat("vendor.js"))
-	.pipe(gulp.dest("./assets/js"))
+	.pipe(gulp.dest("./dst/js"))
 });
 
 gulp.task("scripts", function() {
 	gulp.src(
 		[
-			"./assets/js/scripts/app.js",
-			"./assets/js/scripts/*.js"
+			"./src/js/scripts/app.js",
+			"./src/js/scripts/*.js"
 		]
 	)
 	.pipe(uglify())
 	.pipe(concat("scripts.js"))
-	.pipe(gulp.dest("./assets/js"))
+	.pipe(gulp.dest("./dst/js"))
 });
 
 gulp.task("images", function() {
-	gulp.src(["./assets/images/*", "!./assets/images/*.svg"])
+	gulp.src("./src/images/{,*/}*")
+	.pipe(newer("./dst/images"))
 	.pipe(imagemin(
 		{
-			optimizationLevel: 5,
+			optimizationLevel: 5, // png
 			progressive: true, // jpg
 			interlaced: true, // gif 
 			multipass: true // svg
 		}
 	))
-	.pipe(gulp.dest("./assets/images"))
+	.pipe(gulp.dest("./dst/images"))
+});
+
+gulp.task("type", function() {
+	gulp.src("./src/type/*")
+	.pipe(gulp.dest("./dst/type"))
 });
