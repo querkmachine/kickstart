@@ -6,7 +6,3 @@ body {
 	color: palette(shade, x-dark);
 	background-color: transparent;
 }
-
-.accessibility-links {
-	@include hidden;
-}

@@ -1,0 +1,19 @@
+.accessibility-links {
+	position: absolute;
+	top: -9999px;
+	left: -9999px;
+	a:focus {
+		display: block;
+		padding: .5em;
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+		background-color: palette(context, accessibility);
+		text-align: center;
+	}
+}
+
+*:focus {
+	outline: 2px solid palette(context, accessibility) !important;
+}
