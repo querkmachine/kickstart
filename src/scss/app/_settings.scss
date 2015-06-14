@@ -1,9 +1,11 @@
 // Breakpoints 
-$bp-ent: "only screen";
-$bp-tos: "only screen and (min-width: 600px)";
-$bp-tng: "only screen and (min-width: 770px)";
-$bp-ds9: "only screen and (min-width: 1024px)";
-$bp-voy: "only screen and (min-width: 1280px)";
+$breakpoints: (
+	ent: "only screen",
+	tos: "only screen and (min-width: 600px)",
+	tng: "only screen and (min-width: 770px)",
+	ds9: "only screen and (min-width: 1024px)",
+	voy: "only screen and (min-width: 1280px)"
+);
 
 // Font size
 $base-font-size: 18px;

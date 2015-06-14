@@ -1,6 +1,6 @@
 // Media query management
-@mixin mq($breakpoint, $oldIE: false) {
-	@media #{$breakpoint} {
+@mixin mq($bp, $oldIE: false) {
+	@media map-get($breakpoints, $bp) {
 		@content;
 	}
 	@if $oldIE == true {
