@@ -6,6 +6,9 @@ Kickstart is my boilerplate code for new projects. It provides a basic "chrome" 
 Version history
 ---------------
 
+### 2.0.1 
+* Fixed interpolation issue with media query mixin. 
+
 ### 2.0.0
 * [BREAKING] Changed to 'source' and 'destination' style assets processing. 
 * Added support for Safari 9's pinned tab icons.
