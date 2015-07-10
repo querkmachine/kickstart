@@ -1,7 +1,14 @@
 // Media query management
 @mixin mq($bp, $oldIE: false) {
-	@media #{map-get($breakpoints, $bp)} {
-		@content;
+	@if map-has-key($breakpoints, $bp) {
+		@media #{map-get($breakpoints, $bp)} {
+			@content;
+		}
+	}
+	@else {
+		@media #{$bp} {
+			@content;
+		}
 	}
 	@if $oldIE == true {
 		html.no-mediaqueries & {
