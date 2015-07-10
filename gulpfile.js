@@ -102,6 +102,6 @@ gulp.task("images", function() {
 });
 
 gulp.task("type", function() {
-	gulp.src("./src/type/*")
+	gulp.src("./src/type/{,*/}*")
 	.pipe(gulp.dest("./dst/type"))
 });
