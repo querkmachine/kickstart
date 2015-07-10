@@ -6,6 +6,9 @@ Kickstart is my boilerplate code for new projects. It provides a basic "chrome" 
 Version history
 ---------------
 
+### 2.1.0
+* Added support for non-mapped breakpoints in the `mq` media query mixin. You can `mq("(min-width: 420px)")` to your heart's content. 
+
 ### 2.0.2
 * Fix `type` task being unable to process fonts nested within folders. 
 
