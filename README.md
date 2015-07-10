@@ -6,6 +6,9 @@ Kickstart is my boilerplate code for new projects. It provides a basic "chrome" 
 Version history
 ---------------
 
+### 2.0.2
+* Fix `type` task being unable to process fonts nested within folders. 
+
 ### 2.0.1 
 * Fixed interpolation issue with media query mixin. 
 
