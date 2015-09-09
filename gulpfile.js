@@ -2,19 +2,21 @@
 	Gulp is a system that automates various tasks, such as linting, 
 	compiling and minifying files, and obfuscating javascript.
 
-	DEPENDENCIES (you'll need these, preferably the latest versions of each):
-	Ruby for Windows — if you're on Windows (http://rubyinstaller.org/)
+	FIRST YOU'LL NEED THIS:
 	Node.js (http://nodejs.org/)
-	Sass (http://sass-lang.com/) 
 
-	Install Gulp globally:
-	  $ [sudo] npm install gulp --global 
-
-	Install/update project dependencies:
+	Navigate to the project dependency using the Node.js command prompt,
+	then run this to install the project dependencies:
 	  $ npm install
 
-	Run Gulp
+	If some src files already exist you'll want to compile them all:
+	  $ gulp force
+
+	And if you're making further changes run this to watch for changes
+	and compile automatically:
 	  $ gulp
+	
+	Sorted.
 */
 
 var gulp = require("gulp");
