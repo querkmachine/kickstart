@@ -1,9 +1,12 @@
+<script src="{{ "/assets/highlight.pack.js" | prepend: site.baseurl }}"></script>
 <script>
+	hljs.initHighlightingOnLoad();
 	var toggler = document.getElementById("navigation-toggle");
 	var navigation = document.getElementById("navigation");
 	var header = document.getElementById("top");
 	var main = document.getElementById("main");
-	toggler.addEventListener("click", function() {
+	toggler.addEventListener("click", function(event) {
+		event.preventDefault();
 		toggler.classList.toggle("_navigation-icon--open");
 		navigation.classList.toggle("_navigation--open");
 		header.classList.toggle("_header--open");

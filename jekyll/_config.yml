@@ -1,7 +1,7 @@
 # Site settings
 title: Pattern library
 email: your-email@domain.com
-description: Things. # Patterns are pretty schwifty, aye.
+description: Things. 
 baseurl: "" # the subpath of the pattern library, e.g. /blog/
 url: "http://yourdomain.com" # the base hostname & protocol of the pattern library
 
@@ -9,7 +9,7 @@ url: "http://yourdomain.com" # the base hostname & protocol of the pattern libra
 collections: 
   patterns:
     output: true
-    permalink: /:path/
+    permalink: /:title/
 
 # Build settings
 markdown: kramdown

@@ -158,10 +158,26 @@
 }
 
 /*
+ * Collections
+ */
+._collection {
+	
+}
+._collection__header {
+	margin-bottom: 5em;
+}
+._collection__title {
+	
+}
+._collection__content {
+	
+}
+
+/*
  * Pattern page
  */
 ._pattern {
-
+	margin-bottom: 3em;
 }
 ._pattern__header {
 
@@ -181,6 +197,7 @@
 ._pattern__notes {
 }
 ._pattern__example {
+	margin-bottom: 3px;
 	padding: 10px;
 	position: relative;
 	border: 1px solid #ececec;
@@ -188,10 +205,8 @@
 	background-color: white;
 }
 ._pattern__code {
-	width: 100%;
+	margin: 0;
 	border: 1px solid #ececec;
 	border-radius: 3px;
-	background-color: white;
-	font-family: monospace;
 	font-size: inherit;
 }

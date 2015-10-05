@@ -1,0 +1,14 @@
+<article class="_pattern">
+	<header class="_pattern__header">
+		<h1 class="_pattern__title">{{ pattern.title }}</h1>
+	</header>
+	{% if pattern.notes %}
+	<div class="_pattern__notes">
+		{{ pattern.notes | markdownify }}
+	</div>
+	{% endif %}
+	<div class="_pattern__example">
+		{{ pattern.content }}
+	</div>
+	<pre class="_pattern__code"><code class="html">{{ pattern.content | xml_escape }}</code></pre>
+</article>
