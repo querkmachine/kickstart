@@ -1,0 +1,16 @@
+# Site settings
+title: Pattern library
+email: your-email@domain.com
+description: Things. # Patterns are pretty schwifty, aye.
+baseurl: "" # the subpath of the pattern library, e.g. /blog/
+url: "http://yourdomain.com" # the base hostname & protocol of the pattern library
+
+# Collections
+collections: 
+  patterns:
+    output: true
+    permalink: /:path/
+
+# Build settings
+markdown: kramdown
+destination: ../pattern-library

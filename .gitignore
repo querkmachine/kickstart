@@ -1,3 +1,6 @@
+.sass_cache/
+node_modules/
+pattern-library/
 Thumbs.db
 ehthumbs.db
 .DS_Store
@@ -5,6 +8,4 @@ ehthumbs.db
 ._*
 .Spotlight-V100
 .Trashes
-sass_cache/
-node_modules/
 npm-debug.log

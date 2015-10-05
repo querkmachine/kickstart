@@ -1,0 +1,12 @@
+<script>
+	var toggler = document.getElementById("navigation-toggle");
+	var navigation = document.getElementById("navigation");
+	var header = document.getElementById("top");
+	var main = document.getElementById("main");
+	toggler.addEventListener("click", function() {
+		toggler.classList.toggle("_navigation-icon--open");
+		navigation.classList.toggle("_navigation--open");
+		header.classList.toggle("_header--open");
+		main.classList.toggle("_main--open");
+	});
+</script>

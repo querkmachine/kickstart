@@ -1,0 +1,197 @@
+/*
+ * Global
+ */ 
+* {
+	box-sizing: border-box;
+}
+._body {
+	margin: 0;
+	padding: 0;
+	background-color: #f8f8f8;
+	overflow-x: hidden;
+}
+._main {
+	padding: 20px 10px;
+	position: relative;
+	left: 0;
+	transition: left .35s ease;
+}
+._main--open {
+	left: 260px;
+}
+
+/* 
+ * Library header
+ */
+._header {
+	position: relative;
+	left: 0;
+	border-bottom: 1px solid #ececec;
+	background-color: white;
+	transition: left .35s ease;
+}
+._header--open {
+	left: 260px;
+}
+._header__branding {
+	font-size: 1.35em;
+	font-weight: bold;
+	line-height: 50px;
+}
+._header__menu-item {
+	display: block;
+	width: 57px;
+	height: 50px;
+	margin-right: 10px;
+	padding: 10px;
+	border-right: 1px solid #ececec;
+	float: left;
+	color: #505f66;
+	font-size: 2em;
+	text-align: center;
+}
+._header__navigation {
+	
+}
+
+@media only screen and (min-width: 560px) {
+
+}
+
+/* 
+ * Library navigation
+ */
+._navigation {
+	width: 260px;
+	padding-top: 50px;
+	position: fixed;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	z-index: 2;
+	border-right: 1px solid #ececec;
+	background-color: white;
+	overflow: auto;
+	transform: translateX(-100%);
+	transition: transform .35s ease;
+}
+._navigation--open {
+	transform: translateX(0);
+}
+._navigation__list {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+._navigation__item {
+	display: block;
+}
+._navigation__link {
+	display: block;
+	padding: 10px;
+	color: #505f66;
+	text-decoration: none;
+}
+._navigation__link:hover,
+._navigation__link:focus {
+	background-color: #ececec;
+}
+
+/*
+ * Navigation toggle icon
+ */
+._navigation-icon, 
+._navigation-icon::before, 
+._navigation-icon::after {
+	width: 1em;
+	height: .125em;
+	background-color: currentColor;
+	transition: all .35s ease;
+}
+._navigation-icon {
+	display: inline-block;
+	position: relative;
+	top: 50%;
+	color: inherit;
+	transform: translateY(-.85em);
+}
+._navigation-icon::before,
+._navigation-icon::after {
+	content: "";
+	display: block;
+	position: absolute;
+	bottom: .25em;
+}
+._navigation-icon::after {
+	top: .25em;
+	bottom: auto;
+}
+._navigation-icon--open {
+	transform: rotate(180deg) translateY(.85em);
+	background-color: rgba(255, 255, 255, 0);
+}
+._navigation-icon--open::before,
+._navigation-icon--open::after {
+	width: .75em;
+}
+._navigation-icon--open::before {
+	transform: rotate(45deg) translate(.12em, -.1em);
+}
+._navigation-icon--open::after {
+	transform: rotate(-45deg) translate(.12em, .1em);
+}
+
+/* 
+ * Generic content page
+ */
+._page {
+
+}
+._page__header {
+
+}
+._page__title {
+	
+}
+._page__content {
+	
+}
+
+/*
+ * Pattern page
+ */
+._pattern {
+
+}
+._pattern__header {
+
+}
+._pattern__title {
+	margin: 0 0 4px;
+	color: #a59190;
+	font-size: 1.4em;
+	font-weight: normal;
+}
+._pattern__subtitle {
+	margin: 15px 0 3px;
+	color: #939393;
+	font-size: 1.2em;
+	font-weight: normal;
+}
+._pattern__notes {
+}
+._pattern__example {
+	padding: 10px;
+	position: relative;
+	border: 1px solid #ececec;
+	border-radius: 3px;
+	background-color: white;
+}
+._pattern__code {
+	width: 100%;
+	border: 1px solid #ececec;
+	border-radius: 3px;
+	background-color: white;
+	font-family: monospace;
+	font-size: inherit;
+}

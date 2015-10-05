@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="_pattern">
+	<header class="_pattern__header">
+		<h1 class="_pattern__title">{{ page.title }}</h1>
+	</header>
+	<div class="_pattern__notes">
+		{{ page.notes }}
+	</div>
+	<h2 class="_pattern__subtitle">Example</h2>
+	<div class="_pattern__example">
+		{{ content }}
+	</div>
+	<h2 class="_pattern__subtitle">HTML</h2>
+	<textarea class="_pattern__code" cols="42" rows="10" readonly>{{ content }}</textarea>
+</article>

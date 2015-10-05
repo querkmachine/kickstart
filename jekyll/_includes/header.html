@@ -1,0 +1,23 @@
+<header class="_header" id="top">
+	<div class="_header__menu-item">
+		<a class="_navigation-icon" href="#navigation" id="navigation-toggle">
+			
+		</a>
+	</div>
+	<div class="_header__branding">
+		{{ site.title }}
+	</div>
+	<nav class="_navigation _header__navigation" id="navigation">
+		<ul class="_navigation__list">
+			<!-- You might want to swap this out to instead link to files in a specific order. Currently this just dumps every pattern out. -->
+			<li class="_navigation__item">
+				<a class="_navigation__link" href="{{ site.url }}{{ site.baseurl }}">Index</a>
+			</li>
+			{% for pattern in site.patterns %}
+				<li class="_navigation__item">
+					<a class="_navigation__link" href="{{ pattern.url | prepend: site.baseurl }}">{{ pattern.title }}</a>
+				</li>
+			{% endfor %}
+		</ul>
+	</nav>
+</header>

@@ -3,8 +3,16 @@ Kickstart
 
 Kickstart is my boilerplate code for new projects. It provides a basic "chrome" page with various common features, as well as an atomic Sass framework, common Javascript libraries and Gulp for processing.
 
+Pattern library
+---------------
+
+To build the pattern library [install Jekyll](http://jekyllrb.com/docs/quickstart/), navigate into the `jekyll` directory and run `jekyll build`. This will create a new `pattern-library` directory with the compiled site in it. (Make sure to edit the `_config.yml` file!)
+
 Version history
 ---------------
+
+### 2.2.0
+* Added Jekyll powered pattern library. If you don't need it just delete the `pattern-library` directory. 
 
 ### 2.1.0
 * Added support for non-mapped breakpoints in the `mq` media query mixin. You can `mq("(min-width: 420px)")` to your heart's content. 
