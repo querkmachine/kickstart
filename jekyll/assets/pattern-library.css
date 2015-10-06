@@ -11,13 +11,19 @@
 	overflow-x: hidden;
 }
 ._main {
-	padding: 20px 10px;
+	padding: 0 1rem 3rem;
 	position: relative;
 	left: 0;
 	transition: left .35s ease;
 }
 ._main--open {
 	left: 260px;
+}
+@media only screen and (min-width: 760px) {
+	._main {
+		padding-right: 3rem;
+		padding-left: 3rem;
+	}
 }
 
 /* 
@@ -54,10 +60,6 @@
 	
 }
 
-@media only screen and (min-width: 560px) {
-
-}
-
 /* 
  * Library navigation
  */
@@ -88,7 +90,7 @@
 }
 ._navigation__link {
 	display: block;
-	padding: 10px;
+	padding: .5rem;
 	color: #505f66;
 	text-decoration: none;
 }
@@ -164,45 +166,50 @@
 	
 }
 ._collection__header {
-	margin-bottom: 5em;
+	margin: 0 -1rem 1rem;
+	padding: 3rem 1rem;
+	color: #fff;
+	background-color: #505F66;
 }
 ._collection__title {
-	
+	margin: 0;
+	font-weight: normal;
 }
 ._collection__content {
 	
+}
+@media only screen and (min-width: 760px) {
+	._collection__header {
+		margin-right: -3rem;
+		margin-left: -3rem;
+		padding: 3rem;
+	}
 }
 
 /*
  * Pattern page
  */
 ._pattern {
-	margin-bottom: 3em;
+	margin-top: 3rem;
 }
 ._pattern__header {
 
 }
 ._pattern__title {
-	margin: 0 0 4px;
+	margin: 0 0 .2rem;
 	color: #a59190;
-	font-size: 1.4em;
-	font-weight: normal;
-}
-._pattern__subtitle {
-	margin: 15px 0 3px;
-	color: #939393;
-	font-size: 1.2em;
+	font-size: 1.4rem;
 	font-weight: normal;
 }
 ._pattern__notes {
 }
 ._pattern__example {
-	margin-bottom: 3px;
-	padding: 10px;
+	margin-bottom: .2rem;
+	padding: 1rem;
 	position: relative;
 	border: 1px solid #ececec;
-	border-radius: 3px;
-	background-color: white;
+	border-radius: 3px;	
+	background-color: #fff;
 }
 ._pattern__code {
 	margin: 0;

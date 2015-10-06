@@ -9,11 +9,12 @@
 	</div>
 	<nav class="_navigation _header__navigation" id="navigation">
 		<ul class="_navigation__list">
-			<!-- You might want to swap this out to instead link to files in a specific order. Currently this just dumps every pattern out. -->
+			<!-- You might want to swap this out to instead link to files in a specific order. Currently this just lists every *collection* of patterns. -->
 			<li class="_navigation__item">
 				<a class="_navigation__link" href="{{ site.baseurl }}/">Index</a>
 			</li>
-			{% for pattern in site.patterns %}
+			{% assign patterns = site.patterns | where: "layout", "collection" %}
+			{% for pattern in patterns %}
 				<li class="_navigation__item">
 					<a class="_navigation__link" href="{{ pattern.url | prepend: site.baseurl }}">{{ pattern.title }}</a>
 				</li>
