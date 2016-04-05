@@ -26,6 +26,7 @@ var concat = require("gulp-concat");
 var uglify = require("gulp-uglify");
 var newer = require("gulp-newer");
 var imagemin = require("gulp-imagemin");
+var plumber = require("gulp-plumber");
 
 gulp.task("default", function() {
 	gulp.watch("./src/scss/{,*/}*.scss", ["stylesheets"]);
@@ -39,6 +40,7 @@ gulp.task("force", ["stylesheets", "scripts-preload", "scripts-vendor", "scripts
 
 gulp.task("stylesheets", function() {
 	gulp.src("./src/scss/stylesheet.scss")
+	.pipe(plumber())
 	.pipe(sass(
 		{
 			errLogToConsole: true,
@@ -55,35 +57,24 @@ gulp.task("stylesheets", function() {
 });
 
 gulp.task("scripts-preload", function() {
-	gulp.src(
-		[
-			"./src/js/preload/*.js"
-		]
-	)
+	gulp.src("./src/js/preload/{,*/}*.js")
+	.pipe(plumber())
 	.pipe(uglify())
 	.pipe(concat("preload.js"))
 	.pipe(gulp.dest("./dst/js"))
 });
 
 gulp.task("scripts-vendor", function() {
-	gulp.src(
-		[
-			"./src/js/vendor/jquery-1.11.3.min.js",
-			"./src/js/vendor/*.js"
-		]
-	)
+	gulp.src(["./src/js/vendor/jquery-1.11.3.min.js", "./src/js/vendor/{,*/}*.js"])
+	.pipe(plumber())
 	.pipe(uglify())
 	.pipe(concat("vendor.js"))
 	.pipe(gulp.dest("./dst/js"))
 });
 
 gulp.task("scripts", function() {
-	gulp.src(
-		[
-			"./src/js/scripts/app.js",
-			"./src/js/scripts/*.js"
-		]
-	)
+	gulp.src(["./src/js/scripts/app.js", "./src/js/scripts/{,*/}*.js"])
+	.pipe(plumber())
 	.pipe(uglify())
 	.pipe(concat("scripts.js"))
 	.pipe(gulp.dest("./dst/js"))
