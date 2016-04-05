@@ -11,6 +11,10 @@ To build the pattern library [install Jekyll](http://jekyllrb.com/docs/quickstar
 Version history
 ---------------
 
+### 2.3.0
+* Updated npm packages to newest versions.
+* Added [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) for error handling. 
+
 ### 2.2.0
 * Added Jekyll powered pattern library. If you don't need it just delete the `pattern-library` directory. 
 
