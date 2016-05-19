@@ -28,6 +28,7 @@ var newer = require("gulp-newer");
 var imagemin = require("gulp-imagemin");
 var plumber = require("gulp-plumber");
 var sourcemaps = require("gulp-sourcemaps");
+var merge = require("merge-stream");
 
 gulp.task("default", function() {
 	gulp.watch("./src/scss/{,*/}*.scss", ["stylesheets"]);
