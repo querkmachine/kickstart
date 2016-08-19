@@ -38,15 +38,11 @@ gulp.task('sass', () => {
 
 gulp.task('sass:lint', () => {
 	const sassLint = require('gulp-sass-lint');
-	// The sass-lint npm module is broken at the moment, so keeping this disabled.
-	// https://github.com/sasstools/sass-lint/issues/389
-	// return gulp.src('./src/scss/{,*/}*.scss')
-	// .pipe(plumber())
-	// .pipe(sassLint({
-	// 	'config': '.sass-lint.yml'
-	// }))
-	// .pipe(sassLint.format())
-	// .pipe(sassLint.failOnError());
+	return gulp.src('./src/scss/{,*/}*.s+(a|c)ss')
+	.pipe(plumber())
+	.pipe(sassLint())
+	.pipe(sassLint.format())
+	.pipe(sassLint.failOnError());
 });
 
 /**
@@ -64,11 +60,9 @@ gulp.task('js', () => {
 		})
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
-		.pipe(babel(
-			{
-				presets: ['es2015']
-			}
-		))
+		.pipe(babel({
+			presets: ['es2015']
+		}))
 		.pipe(concat(`${folder}.js`))
 		.pipe(sourcemaps.write('.'))
 		.pipe(gulp.dest('./dst/js'))
@@ -108,14 +102,12 @@ gulp.task('images', () => {
 	gulp.src('./src/images/{,*/}*')
 	.pipe(plumber())
 	.pipe(newer('./dst/images'))
-	.pipe(imagemin(
-		{
-			optimizationLevel: 5, // png
-			progressive: true, // jpg
-			interlaced: true, // gif 
-			multipass: true // svg
-		}
-	))
+	.pipe(imagemin({
+		optimizationLevel: 5, // png
+		progressive: true, // jpg
+		interlaced: true, // gif 
+		multipass: true // svg
+	}))
 	.pipe(gulp.dest('./dst/images'));
 });
 
