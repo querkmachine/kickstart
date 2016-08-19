@@ -1,17 +1,12 @@
 // Media query management
-@mixin mq($bp, $oldIE: false) {
-	@if map-has-key($breakpoints, $bp) {
-		@media #{map-get($breakpoints, $bp)} {
+@mixin mq($breakpoint) {
+	@if map-has-key($breakpoints, $breakpoint) {
+		@media #{map-get($breakpoints, $breakpoint)} {
 			@content;
 		}
 	}
 	@else {
-		@media #{$bp} {
-			@content;
-		}
-	}
-	@if $oldIE == true {
-		html.no-mediaqueries & {
+		@media #{$breakpoint} {
 			@content;
 		}
 	}
@@ -43,17 +38,17 @@
 	}
 }
 
+// Input placeholders
+@mixin placeholder {
+	&::-webkit-input-placeholder { @content; }
+	&:-moz-placeholder { @content; }
+	&::-moz-placeholder { @content; }
+	&:-ms-input-placeholder { @content; }
+}
 
-// Vertical element alignment
-@mixin vertical-align($absolute: false) {
-	@if $absolute == true {
-		position: absolute;
-		right: 0;
-		left: 0;
-	}
-	@else {
-		position: relative;
-	}
-	top: 50%;
-	transform: translateY(-50%);
+// Hide text for old school text replacement
+@mixin hide-text {
+	text-indent: 110%;
+	white-space: nowrap;
+	overflow: hidden;
 }
