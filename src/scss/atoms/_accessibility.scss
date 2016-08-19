@@ -8,16 +8,16 @@
 		top: 0;
 		right: 0;
 		left: 0;
-		z-index: 9999;
 		padding: 15px 20px;
+		transform: translateY(-100%);
+		transition: transform .1s linear;
 		background-color: palette(context, accessibility);
 		color: #000;
 		font-weight: bold;
 		text-align: center;
 		text-decoration: none;
-		transform: translateY(-100%);
-		transition: transform .1s linear;
-		&[href='#top'] {
+		z-index: 9999;
+		&[href="#top"] {
 			top: auto;
 			bottom: 0;
 			transform: translateY(100%);

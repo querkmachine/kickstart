@@ -6,4 +6,4 @@ app.ui = function() {
 
 	};
 	this.init();
-}
+};

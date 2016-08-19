@@ -87,8 +87,10 @@ gulp.task('js:vendor', () => {
 
 gulp.task('js:lint', () => {
 	const jshint = require('gulp-jshint');
-	return gulp.src(['./src/js/{,*/}*.js', '!./src/js/vendor/{,*/}*.js'])
-	.pipe(jshint())
+	return gulp.src(['./src/js/{,*/}*.js', '!./src/js/+(preload|vendor)/{,*/}*.js'])
+	.pipe(jshint({
+		esversion: 6
+	}))
 	.pipe(jshint.reporter('default'));
 });
 

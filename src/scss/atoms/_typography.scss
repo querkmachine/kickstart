@@ -30,8 +30,8 @@
 	@include header-font;
 	font-size: 1.375em;
 	font-style: italic;
-	text-transform: uppercase;
 	line-height: 1.13636364;
+	text-transform: uppercase;
 	@include mq(tng) {
 		font-size: 1.5em;
 		line-height: 1.25;
@@ -57,8 +57,8 @@
 	@include header-font;
 	font-size: .833333333em;
 	font-weight: normal;
-	text-transform: uppercase;
 	letter-spacing: 1px;
+	text-transform: uppercase;
 }
 
 body {
