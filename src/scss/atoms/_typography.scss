@@ -2,7 +2,7 @@
 	font-family: Georgia, serif;
 	font-size: $base-font-size;
 	line-height: 1.25;
-	@include mq(tng, true) {
+	@include mq(tng) {
 		line-height: 1.375;
 	}
 }
@@ -20,7 +20,7 @@
 		font-size: 2.5em;
 		line-height: 1.125;
 	}
-	@include mq(ds9, true) {
+	@include mq(ds9) {
 		font-size: 3em;
 		line-height: 1.05;
 	}
@@ -36,7 +36,7 @@
 		font-size: 1.5em;
 		line-height: 1.25;
 	}
-	@include mq(ds9, true) {
+	@include mq(ds9) {
 		font-size: 1.75em;
 		line-height: 1.25;
 	}
