@@ -11,12 +11,34 @@ To build the pattern library [install Jekyll](http://jekyllrb.com/docs/quickstar
 Version history
 ---------------
 
+### 3.0.0
+
+#### Build system
+* Gulp tasks have been radically overhauled. 
+  * Gulpfile itself is now in ES2015 JavaScript. 
+  * Added npm shrinkwrap file. 
+* Added Gulp task to lint Sass files.
+* Modified JS task to transpile ES2015 code. 
+
+#### Sass
+* Sass mixins and functions! Added some new ones, removed some old ones.
+  * Media query mixin no longer has IE fallback.
+  * Vertical alignment mixin has been removed.
+  * `em-calc` function has been replaced with `rem-calc`. 
+* Completely changed CSS reset code. 
+* Updated accessibility CSS. 
+
+#### JavaScript
+* Now ES2015 as standard.
+
+* Live your dreams!
+
 ### 2.3.0
 * Updated npm packages to newest versions.
 * Added [gulp-plumber](https://www.npmjs.com/package/gulp-plumber) for error handling. 
 
 ### 2.2.0
-* Added Jekyll powered pattern library. If you don't need it just delete the `pattern-library` directory. 
+* Added Jekyll powered pattern library. If you don't need it just delete the `jekyll` directory. 
 
 ### 2.1.0
 * Added support for non-mapped breakpoints in the `mq` media query mixin. You can `mq("(min-width: 420px)")` to your heart's content. 
