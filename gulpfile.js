@@ -6,7 +6,7 @@ const sourcemaps = require('gulp-sourcemaps');
 
 gulp.task('default', ['watch']);
 gulp.task('lint', ['sass:lint', 'js:lint'])
-gulp.task('production', ['sass', 'js', 'images', 'fonts']);
+gulp.task('production', ['sass', 'js', 'js:vendor', 'images', 'fonts']);
 gulp.task('force', ['production']);
 
 gulp.task('watch', () => {
