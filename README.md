@@ -11,6 +11,10 @@ To build the pattern library [install Jekyll](http://jekyllrb.com/docs/quickstar
 Version history
 ---------------
 
+### 3.0.1 
+* Fix Gulpfile not compiling vendor and preload code on `production` task.
+* Swap `let` for `var` on `no-js` class code, cause old IE falls over it. 
+
 ### 3.0.0
 
 #### Build system
