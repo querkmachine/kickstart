@@ -49,7 +49,7 @@ gulp.task('sass:lint', () => {
  * JavaScript compilation
  */
 
-gulp.task('js', () => {
+gulp.task('js', ['js:vendor'], () => {
 	const babel = require('gulp-babel');
 	const concat = require('gulp-concat');
 	const merge = require('merge-stream');
