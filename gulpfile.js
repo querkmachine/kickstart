@@ -56,7 +56,7 @@ gulp.task('js', ['js:vendor'], () => {
 	const merge = require('merge-stream');
 	var folders = ['scripts'];
 	var tasks = folders.map((folder) => {
-		return gulp.src(`./src/js/${folder}/{,*/}*.js`, {
+		return gulp.src(`./src/js/${folder}/**/*.js`, {
 			base: `./src/js/${folder}`
 		})
 		.pipe(plumber())
@@ -76,7 +76,7 @@ gulp.task('js:vendor', () => {
 	const merge = require('merge-stream');
 	const folders = ['preload', 'vendor'];
 	const tasks = folders.map((folder) => {
-		return gulp.src(`./src/js/${folder}/{,*/}*.js`, {
+		return gulp.src(`./src/js/${folder}/**/*.js`, {
 			base: `./src/js/${folder}`
 		})
 		.pipe(plumber())
@@ -88,7 +88,7 @@ gulp.task('js:vendor', () => {
 
 gulp.task('js:lint', () => {
 	const jshint = require('gulp-jshint');
-	return gulp.src(['./src/js/{,*/}*.js', '!./src/js/+(preload|vendor)/{,*/}*.js'])
+	return gulp.src(['./src/js/**/*.js', '!./src/js/+(preload|vendor)/**/*.js'])
 	.pipe(jshint({
 		esversion: 6
 	}))
@@ -102,7 +102,7 @@ gulp.task('js:lint', () => {
 gulp.task('images', () => {
 	const newer = require('gulp-newer');
 	const imagemin = require('gulp-imagemin');
-	gulp.src('./src/images/{,*/}*')
+	gulp.src('./src/images/**/*')
 	.pipe(plumber())
 	.pipe(newer('./dst/images'))
 	.pipe(imagemin({
@@ -119,6 +119,6 @@ gulp.task('images', () => {
  */
 
 gulp.task('fonts', () => {
-	gulp.src('./src/type/{,*/}*')
+	gulp.src('./src/type/**/*')
 	.pipe(gulp.dest('./dst/type'));
 });
