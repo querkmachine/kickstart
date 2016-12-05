@@ -1,30 +1,20 @@
-.accessibility-links {
+.skiplink {
+	display: block;
+	padding: 15px 20px;
 	position: absolute;
-	top: -9999px;
-	left: -9999px;
-	a {
-		display: block;
+	top: -9999em;
+	left: -9999em;
+	background-color: palette(context, accessibility);
+	color: #000;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	z-index: 9999;
+	&:focus {
 		position: fixed;
 		top: 0;
 		right: 0;
 		left: 0;
-		padding: 15px 20px;
-		transform: translateY(-100%);
-		transition: transform .1s linear;
-		background-color: palette(context, accessibility);
-		color: #000;
-		font-weight: bold;
-		text-align: center;
-		text-decoration: none;
-		z-index: 9999;
-		&[href="#top"] {
-			top: auto;
-			bottom: 0;
-			transform: translateY(100%);
-		}
-		&:focus {
-			transform: translateY(0);
-		}
 	}
 }
 
