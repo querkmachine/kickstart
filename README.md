@@ -3,13 +3,24 @@ Kickstart
 
 Kickstart is my boilerplate code for new projects. It provides a basic "chrome" page with various common features, as well as an atomic Sass framework, common Javascript libraries and Gulp for processing.
 
-Pattern library
----------------
-
-To build the pattern library [install Jekyll](http://jekyllrb.com/docs/quickstart/), navigate into the `jekyll` directory and run `jekyll build`. This will create a new `pattern-library` directory with the compiled site in it. (Make sure to edit the `_config.yml` file!)
-
 Version history
 ---------------
+
+### 4.0.0
+
+#### Build system
+* Added `gulp-watch` to replace the built in watch function. No more need to kill and restart Gulp every time you add a new file!
+  * Also changed the regexes to be simpler and not fail on a bunch of edge cases.
+* Added [Yarn](http://yarnpkg.org) lockfile. Yarn is cool. (Though it really disagrees with `gulp-imagemin`...)
+* Removed npm shrinkwrap file. 
+
+#### Sass
+* Simplified CSS for skiplinks and took them out of lists. Some screenreaders were disapproving. 
+* Removed a ton of pre-defined Sass styles that I don't tend to use anymore. 
+* Now always uses system fonts by default. Better performing and often just as pretty. Following GitHub's lead on that one.
+
+#### Pattern library
+* Is gone. It was pointless now that I've moved to using [Fractal](http://fractal.build), which is generally better in every way. Also felt a little out of place having one in a 'basic' boilerplate.
 
 ### 3.0.1 
 * Fix Gulpfile not compiling vendor and preload code on `production` task.
