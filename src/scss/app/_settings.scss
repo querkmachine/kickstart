@@ -1,16 +1,17 @@
-// Breakpoints 
+// Settings - Breakpoints 
 $breakpoints: (
-	ent: "only screen",
+	ent: "only screen and (min-width: 420px)",
 	tos: "only screen and (min-width: 600px)",
 	tng: "only screen and (min-width: 770px)",
 	ds9: "only screen and (min-width: 1024px)",
 	voy: "only screen and (min-width: 1280px)"
 );
 
-// Font size
-$base-font-size: 18px;
+// Settings - Typography
+$base-font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+$base-font-size: 16px;
 
-// Colour scheme
+// Settings - Colour palette
 $palette: (
 	brand: (
 	),
@@ -21,14 +22,5 @@ $palette: (
 		success: #4caf50,
 		warning: #ffc107,
 		error: #f44336
-	),
-	shade: (
-		white: #fff,
-		x-light: #eaeaee,
-		light: #c7c7cc,
-		base: #727277,
-		dark: #424244,
-		x-dark: #202022,
-		black: #000
 	)
 );

@@ -27,7 +27,6 @@
 // Non-overflow-based clearfix (for elements that need 
 // things to be able to go outside them)
 @mixin clearfix {
-	*zoom: 1;
 	&:before,
 	&:after {
 		display: table;

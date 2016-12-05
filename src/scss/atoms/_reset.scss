@@ -1,20 +1,20 @@
 @viewport { width: device-width; }
 
 * { 
-  margin: 0;
-  padding: 0;
-  border: 0;
-  background: transparent;
-  vertical-align: baseline;
-  box-sizing: border-box;
-  &::before,
-  &::after {
-    box-sizing: inherit;
-  }
+	margin: 0;
+	padding: 0;
+	border: 0;
+	background: transparent;
+	vertical-align: baseline;
+	box-sizing: border-box;
+	&::before,
+	&::after {
+		box-sizing: inherit;
+	}
 }
 
 html {
-  -webkit-overflow-scrolling: touch;
+	-webkit-overflow-scrolling: touch;
 }
 
 
@@ -30,7 +30,7 @@ menu,
 nav,
 section,
 summary {
-  display: block;
+	display: block;
 }
 
 /** Multimedia */
@@ -39,7 +39,7 @@ audio,
 canvas,
 progress,
 video {
-  display: inline-block;
+	display: inline-block;
 }
 
 audio,
@@ -48,50 +48,50 @@ img,
 progress,
 svg,
 video {
-  max-width: 100%;
-  height: auto;
+	max-width: 100%;
+	height: auto;
 }
 
 audio:not([controls]) {
-  display: none;
-  height: 0;
+	display: none;
+	height: 0;
 }
 
 img {
-  border-style: none;
-  image-rendering: optimizeQuality;
-  -ms-interpolation-mode: bicubic;
+	border-style: none;
+	image-rendering: optimizeQuality;
+	-ms-interpolation-mode: bicubic;
 }
 
 svg:not(:root) {
-  overflow: hidden;
+	overflow: hidden;
 }
 
 template,
 [hidden] {
-  display: none;
+	display: none;
 }
 
 /** Links */
 
 a {
-  background-color: transparent;
-  -webkit-text-decoration-skip: objects;
-  &:active,
-  &:hover {
-    outline-width: 0;
-  }
+	background-color: transparent;
+	-webkit-text-decoration-skip: objects;
+	&:active,
+	&:hover {
+		outline-width: 0;
+	}
 }
 
 /** Typography */
 
 html {
-  text-size-adjust: 100%;
+	text-size-adjust: 100%;
 }
 
 body {
-  text-rendering: optimizeLegibility;
-  word-wrap: break-word;
+	text-rendering: optimizeLegibility;
+	word-wrap: break-word;
 }
 
 h1, 
@@ -100,83 +100,83 @@ h3,
 h4, 
 h5, 
 h6 {
-  font-size: inherit;
+	font-size: inherit;
 }
 
 abbr[title] {
-  border-bottom: none;
-  font-variant: small-caps;
-  text-decoration: underlined;
-  text-decoration: underlined dotted;
-  text-transform: lowercase;
-  cursor: help;
+	border-bottom: none;
+	font-variant: small-caps;
+	text-decoration: underlined;
+	text-decoration: underlined dotted;
+	text-transform: lowercase;
+	cursor: help;
 }
 
 b,
 strong {
-  font-weight: inherit;
-  font-weight: bolder;
+	font-weight: inherit;
+	font-weight: bolder;
 }
 
 code,
 kbd,
 pre,
 samp {
-  font-family: monospace, monospace;
-  font-size: 1em;
+	font-family: monospace, monospace;
+	font-size: 1em;
 }
 
 del {
-  text-decoration: line-through;
+	text-decoration: line-through;
 }
 
 dfn {
-  font-style: italic;
+	font-style: italic;
 }
 
 ins {
-  text-decoration: underline;
+	text-decoration: underline;
 }
 
 mark {
-  background-color: #ff0;
-  color: #000;
+	background-color: #ff0;
+	color: #000;
 }
 
 small {
-  font-size: 80%;
+	font-size: 80%;
 }
 
 sub,
 sup {
-  position: relative;
-  font-size: 75%;
-  line-height: 0;
-  vertical-align: baseline;
+	position: relative;
+	font-size: 75%;
+	line-height: 0;
+	vertical-align: baseline;
 }
 
 sub {
-  bottom: -.25em;
+	bottom: -.25em;
 }
 
 sup {
-  top: -.5em;
+	top: -.5em;
 }
 
 /** Embedded content */
 
 figure {
-  margin: 1em 40px;
+	margin: 1em 40px;
 }
 
 hr {
-  height: 0;
-  overflow: visible;
-  box-sizing: content-box;
+	height: 0;
+	overflow: visible;
+	box-sizing: content-box;
 }
 
 q {
-  quotes: "\201C" "\201D" "\2018" "\2019";
+	quotes: "\201C" "\201D" "\2018" "\2019";
 }
 
 /** Forms */
@@ -185,84 +185,84 @@ button,
 input,
 select,
 textarea {
-  margin: 0;
-  font: inherit;
+	margin: 0;
+	font: inherit;
 }
 
 optgroup {
-  font-weight: bold;
+	font-weight: bold;
 }
 
 button,
 input {
-  overflow: visible;
+	overflow: visible;
 }
 
 button,
 select {
-  text-transform: none;
+	text-transform: none;
 }
 
 button,
 [type="button"],
 [type="reset"],
 [type="submit"] {
-  -webkit-appearance: button;
-  &::-moz-focus-inner {
-    padding: 0;
-    border-style: none;
-  }
-  &:-moz-focusring {
-    outline: 1px dotted ButtonText;
-  }
+	-webkit-appearance: button;
+	&::-moz-focus-inner {
+		padding: 0;
+		border-style: none;
+	}
+	&:-moz-focusring {
+		outline: 1px dotted ButtonText;
+	}
 }
 
 fieldset {
-  margin: 0 2px;
-  padding: .35em .625em .75em;
-  border: 1px solid #c0c0c0;
+	margin: 0 2px;
+	padding: .35em .625em .75em;
+	border: 1px solid #c0c0c0;
 }
 
 legend {
-  display: table;
-  max-width: 100%;
-  padding: 0;
-  color: inherit;
-  white-space: normal;
+	display: table;
+	max-width: 100%;
+	padding: 0;
+	color: inherit;
+	white-space: normal;
 }
 
 textarea {
-  overflow: auto;
+	overflow: auto;
 }
 
 [type="checkbox"],
 [type="radio"] {
-  padding: 0;
-  box-sizing: border-box;
+	padding: 0;
+	box-sizing: border-box;
 }
 
 [type="number"] {
-  &::-webkit-inner-spin-button,
-  &::-webkit-outer-spin-button {
-    height: auto;
-  }
+	&::-webkit-inner-spin-button,
+	&::-webkit-outer-spin-button {
+		height: auto;
+	}
 }
 
 [type="search"] {
-  outline-offset: -2px;
-  -webkit-appearance: textfield;
-  &::-webkit-search-cancel-button,
-  &::-webkit-search-decoration {
-    -webkit-appearance: none;
-  }
+	outline-offset: -2px;
+	-webkit-appearance: textfield;
+	&::-webkit-search-cancel-button,
+	&::-webkit-search-decoration {
+		-webkit-appearance: none;
+	}
 }
 
 ::-webkit-input-placeholder {
-  color: inherit;
-  opacity: .54;
+	color: inherit;
+	opacity: .54;
 }
 
 ::-webkit-file-upload-button {
-  font: inherit;
-  -webkit-appearance: button;
+	font: inherit;
+	-webkit-appearance: button;
 }
