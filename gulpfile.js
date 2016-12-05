@@ -10,11 +10,12 @@ gulp.task('production', ['sass', 'js', 'js:vendor', 'images', 'fonts']);
 gulp.task('force', ['production']);
 
 gulp.task('watch', () => {
-	gulp.watch('./src/scss/{,*/}*.scss', ['sass']);
-	gulp.watch('./src/js/scripts/{,*/}*.js', ['js']);
-	gulp.watch('./src/js/+(preload|vendor)/{,*/}*.js', ['js:vendor']);
-	gulp.watch('./src/images/{,*/}*', ['images']);
-	gulp.watch('./src/type/{,*/}*', ['fonts']);
+	const watch = require('gulp-watch');
+	const batch = require('gulp-batch');
+	watch('./src/scss/**/*.scss', batch((events, done) => { gulp.start('sass', done); }));
+	watch('./src/js/**/*.js', batch((events, done) => { gulp.start('js', done); }));
+	watch('./src/images/**/*', batch((events, done) => { gulp.start('images', done); }));
+	watch('./src/type/**/*', batch((events, done) => { gulp.start('fonts', done); }));
 });
 
 /*
