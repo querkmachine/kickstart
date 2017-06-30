@@ -1,6 +1,4 @@
-const app = app || {};
-
-app.ui = function() {
+App.Example = function() {
 	const self = this;
 	this.init = () => {
 

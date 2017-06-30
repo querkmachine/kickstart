@@ -12,6 +12,7 @@ This update does a whole lot of opinionated changes aimed entirely at making my 
 * Added basic configuration for [Fractal](http://fractal.build). Cause I keep using Fractal and having to set up all those Gulp tasks manually. 
   * The default Gulp task will now set up a Fractal server in addition to watching for stuff. Use `gulp watch` to only do the latter. 
   * Likewise `gulp force` will now run a Fractal export. Use `gulp production` to only recompile assets. 
+* Changes to JavaScript compilation. There's now a file called `app.js`, which is always first in the concat queue, so you can initialise globals in there without having to check for their existence in every subsequent file. 
 * Updated node dependencies.
 * Removed a whole bunch of favicon code. It's now a mere five lines. 
 

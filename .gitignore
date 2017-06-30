@@ -1,6 +1,12 @@
-.sass_cache/
+# compiled stuff directories
+dst/
+components/
+
+# npm type things 
 node_modules/
-pattern-library/
+npm-debug.log
+
+# system files we don't want
 Thumbs.db
 ehthumbs.db
 .DS_Store
@@ -8,5 +14,3 @@ ehthumbs.db
 ._*
 .Spotlight-V100
 .Trashes
-npm-debug.log
-dst/
