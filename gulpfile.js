@@ -127,6 +127,72 @@ gulp.task('images', () => {
 	.pipe(gulp.dest('./dst/images'));
 });
 
+gulp.task('favicon', (done) => {
+	const fs = require('fs');
+	const faviconGenerator = require('gulp-real-favicon');
+	faviconGenerator.generateFavicon({
+		masterPicture: './src/images/favicon.png',
+		dest: '.',
+		iconsPath: '/',
+		design: {
+			ios: {
+				pictureAspect: 'backgroundAndMargin',
+				backgroundColor: config.color,
+				margin: '14%',
+				assets: {
+					ios6AndPriorIcons: false,
+					ios7AndLaterIcons: false,
+					precomposedIcons: false,
+					declareOnlyDefaultIcon: true
+				}
+			},
+			desktopBrowser: {},
+			windows: {
+				pictureAspect: 'whiteSilhouette',
+				backgroundColor: config.color,
+				onConflict: 'override',
+				assets: {
+					windows80Ie10Tile: false,
+					windows10Ie11EdgeTiles: {
+						small: false,
+						medium: true,
+						big: false,
+						rectangle: false
+					}
+				}
+			},
+			androidChrome: {
+				pictureAspect: 'shadow',
+				themeColor: config.color,
+				manifest: {
+					name: config.name,
+					display: 'standalone',
+					orientation: 'notSet',
+					onConflict: 'override',
+					declared: true
+				},
+				assets: {
+					legacyIcon: false,
+					lowResolutionIcons: false
+				}
+			},
+			safariPinnedTab: {
+				pictureAspect: 'blackAndWhite',
+				threshold: 75,
+				themeColor: config.color
+			}
+		},
+		settings: {
+			compression: 4,
+			scalingAlgorithm: 'Lanczos',
+			errorOnImageTooSmall: false
+		},
+		markupFile: 'faviconData.json'
+	}, function() {
+		done();
+	});
+});
+
 /**
  * Typography teleportation
  */
