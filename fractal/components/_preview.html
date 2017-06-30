@@ -1,0 +1,17 @@
+<!doctype html>
+<html lang="en-GB" dir="ltr" class="no-js">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="{{ '/css/stylesheet.css' | path }}">
+    <script>var h = document.querySelector('html');h.classList.remove('no-js');h.classList.add('js');</script>
+    <script src="{{ '/js/preload.js' | path }}"></script>
+    <title>Preview</title>
+</head>
+<body>
+    {{ yield }}
+    <script src="{{ '/js/vendor.js' | path }}"></script>
+    <script src="{{ '/js/scripts.js' | path }}"></script>
+</body>
+</html>
