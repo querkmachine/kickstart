@@ -1,9 +1,0 @@
-@mixin body-font {
-	font-family: $base-font-family;
-	font-size: $base-font-size;
-	line-height: 1.5;
-}
-
-body {
-	@include body-font;
-}

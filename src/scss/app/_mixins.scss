@@ -1,7 +1,8 @@
 // Media query management
 @mixin mq($breakpoint) {
-	@if map-has-key($breakpoints, $breakpoint) {
-		@media #{map-get($breakpoints, $breakpoint)} {
+	$map-breakpoints: map-get($config, breakpoints);
+	@if map-has-key($map-breakpoints, $breakpoint) {
+		@media #{map-get($map-breakpoints, $breakpoint)} {
 			@content;
 		}
 	}
@@ -43,11 +44,4 @@
 	&:-moz-placeholder { @content; }
 	&::-moz-placeholder { @content; }
 	&:-ms-input-placeholder { @content; }
-}
-
-// Hide text for old school text replacement
-@mixin hide-text {
-	text-indent: 110%;
-	white-space: nowrap;
-	overflow: hidden;
 }

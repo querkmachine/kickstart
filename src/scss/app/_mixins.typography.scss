@@ -1,0 +1,118 @@
+/**
+ * Font family
+ */
+
+@mixin font-default {
+	font-family: config(fonts, body-font-family);
+}
+
+@mixin font-header {
+	font-family: config(fonts, header-font-family);
+}
+
+@mixin font-monospace {
+	font-family: config(fonts, monospace-font-family);
+}
+
+/**
+ * Font size
+ */
+
+@mixin size-default {
+	font-size: rem-calc(16px);
+}
+
+@mixin size-h1 {
+	font-size: rem-calc(96px);
+}
+
+@mixin size-h2 {
+	font-size: rem-calc(80px);
+}
+
+@mixin size-h3 {
+	font-size: rem-calc(48px);
+}
+
+@mixin size-h4 {
+	font-size: rem-calc(36px);
+}
+
+@mixin size-h5 {
+	font-size: rem-calc(24px);
+}
+
+@mixin size-h6 {
+	font-size: rem-calc(20px);
+}
+
+@mixin size-small {
+	font-size: rem-calc(14px);
+}
+
+/**
+ * Leading
+ */
+
+@mixin lead-default {
+	line-height: 1.5;
+}
+
+@mixin lead-title {
+	line-height: 1.25;
+}
+
+@mixin lead-solid {
+	line-height: 1;
+}
+
+/**
+ * Measure
+ */
+
+@mixin measure-default {
+	max-width: 30em;
+}
+
+@mixin measure-wide {
+	max-width: 34em;
+}
+
+@mixin measure-narrow {
+	max-width: 20em;
+}
+
+/**
+ * Tracking
+ */
+
+@mixin track-default {
+	letter-spacing: normal;
+}
+
+@mixin track-wide {
+	letter-spacing: .1em;
+}
+
+@mixin track-narrow {
+	letter-spacing: -.05em;
+}
+
+/**
+ * Text antialiasing
+ */
+
+@mixin antialiasing {
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+}
+
+/**
+ * Hide text for old school image replacement
+ */
+
+@mixin hide-text {
+	text-indent: 110%;
+	white-space: nowrap;
+	overflow: hidden;
+}

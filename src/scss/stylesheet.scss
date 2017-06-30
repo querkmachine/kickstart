@@ -1,23 +1,9 @@
-// Project
-@import "app/settings";
-@import "app/functions";
-@import "app/mixins";
-
-// Atoms
-// e.g. @import "atoms/table";
-@import "atoms/reset";
-@import "atoms/global";
-@import "atoms/accessibility";
-@import "atoms/typography";
-
-// Molecules
-// e.g. @import "molecules/data-table";
-
-// Organisms
-// e.g. @import "organisms/dataset";
-
-// Templates
-// e.g. @import "templates/datasheet";
-
-// Pages
-// e.g. @import "pages/datasheet-3124";
+@import 
+	 'app/settings'
+	,'app/functions'
+	,'app/mixins'
+	,'app/mixins.typography'
+	,'atoms/reset'
+	,'atoms/global'
+	,'atoms/accessibility'
+;

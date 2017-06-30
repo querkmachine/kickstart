@@ -1,10 +1,17 @@
-// Colour palette management
-@function palette($section, $color, $tone: false) {
-	@if $tone {
-		@return map-get(map-get(map-get($palette, $section), $color), $tone);
+// Get things from configuration
+@function config($section, $key, $variant: false) {
+	$return: false;
+	@if $variant {
+		$return: map-get(map-get(map-get($config, $section), $key), $variant);
 	}
 	@else {
-		@return map-get(map-get($palette, $section), $color);
+		$return: map-get(map-get($config, $section), $key);
+	}
+	@if type_of($return) == 'string' {
+		@return unquote($return);
+	}
+	@else {
+		@return $return;
 	}
 }
 
@@ -20,7 +27,7 @@
 	@return $value;
 }
 
-@function rem-calc($values, $base-value: $base-font-size) {
+@function rem-calc($values, $base-value: config(layout, rem-unit)) {
 	$max: length($values);
 	@if $max == 1 { @return convert-to-rem(nth($values, 1), $base-value); }
 	$emValues: ();
@@ -28,35 +35,4 @@
 		$emValues: append($emValues, convert-to-rem(nth($values, $i), $base-value));
 	}
 	@return $emValues;
-}
-
-@function em-calc($values, $base-value: $base-font-size) {
-	@return rem-calc($values, $base-value);
-}
-
-
-// String replace
-@function str-replace($string, $search, $replace: "") {
-	$index: str-index($string, $search);
-	@if $index {
-		@return str-slice($string, 1, $index - 1) + $replace + str-replace(str-slice($string, $index + str-length($search)), $search, $replace);
-	}
-	@return $string;
-}
-
-// Encode hash symbols (for icon colours)
-@function encoded-hash($string) {
-	$string: "" + $string;
-	$string: str-replace($string, "#", "%23");
-	@return $string;
-}
-
-// Return black or white to complement variably coloured backgrounds
-@function black-or-white($color) {
-	@if (lightness($color) > 50) {
-		@return #000;
-	}
-	@else {
-		@return #fff;
-	}
 }

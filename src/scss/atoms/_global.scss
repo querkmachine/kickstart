@@ -3,6 +3,9 @@ html {
 }
 
 body {
+	@include font-default;
+	@include size-default;
 	background-color: transparent;
-	color: #212121;
+	color: config(palette, neutral, darkest);
+
 }

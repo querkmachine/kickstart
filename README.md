@@ -6,6 +6,21 @@ Kickstart is my boilerplate code for new projects. It provides a basic "chrome" 
 Version history
 ---------------
 
+### 5.0.0
+This update does a whole lot of opinionated changes aimed entirely at making my life easier. There's new sensible defaults, more node packages tailored for the way I like to build things, and a whole lot of breaking changes. You have been warned. 
+
+* Added basic configuration for [Fractal](http://fractal.build). Cause I keep using Fractal and having to set up all those Gulp tasks manually. 
+  * The default Gulp task will now set up a Fractal server in addition to watching for stuff. Use `gulp watch` to only do the latter. 
+  * Likewise `gulp force` will now run a Fractal export. Use `gulp production` to only recompile assets. 
+* Updated node dependencies.
+* Removed a whole bunch of favicon code. It's now a mere five lines. 
+
+#### Sass
+* Project settings are now held in one massive Sass map, rather than multiple smaller ones and various global variables. 
+* Added a `config` function for getting things out of said massive Sass map.
+* Added a whole file full of typography related mixins. It was kinda weird having them in an atom file. 
+* Removed Sass functions for embedding SVGs in CSS. I ain't about that life (not anymore, anyway). 
+
 ### 4.0.0
 
 #### Build system
