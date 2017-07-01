@@ -14,7 +14,7 @@ This update does a whole lot of opinionated changes aimed entirely at making my 
   * Likewise `gulp force` will now run a Fractal export. Use `gulp production` to only recompile assets. 
 * Changes to JavaScript compilation. There's now a file called `app.js`, which is always first in the concat queue, so you can initialise globals in there without having to check for their existence in every subsequent file. 
 * Updated node dependencies.
-* Removed a whole bunch of favicon code. It's now a mere five lines. 
+* Favicons can now be automagically generated. Add a `favicon.png` file to the images directory and it'll be resized, converted and linked up for you. 
 
 #### Sass
 * Project settings are now held in one massive Sass map, rather than multiple smaller ones and various global variables. 
