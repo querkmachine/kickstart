@@ -127,13 +127,14 @@ gulp.task('images', () => {
 	.pipe(gulp.dest('./dst/images'));
 });
 
-gulp.task('favicon', (done) => {
+gulp.task('favicon', () => {
 	const fs = require('fs');
 	const faviconGenerator = require('gulp-real-favicon');
+	const batchReplace = require('gulp-batch-replace');
 	faviconGenerator.generateFavicon({
 		masterPicture: './src/images/favicon.png',
-		dest: '.',
-		iconsPath: '/',
+		dest: './dst/images/favicon/',
+		iconsPath: '/dst/images/favicon/',
 		design: {
 			ios: {
 				pictureAspect: 'backgroundAndMargin',
@@ -189,7 +190,11 @@ gulp.task('favicon', (done) => {
 		},
 		markupFile: 'faviconData.json'
 	}, function() {
-		done();
+		gulp.src('./index.html')
+		.pipe(batchReplace([
+			[/<!-- inject:favicons -->[\S\s]*<!-- endinject -->/g, `<!-- inject:favicons -->${JSON.parse(fs.readFileSync('faviconData.json')).favicon.html_code}<!-- endinject -->`]
+		]))
+		.pipe(gulp.dest('.'));
 	});
 });
 
