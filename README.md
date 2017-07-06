@@ -21,6 +21,7 @@ This update does a whole lot of opinionated changes aimed entirely at making my 
 * Project settings are now held in one massive Sass map, rather than multiple smaller ones and various global variables. 
 * Added a `config` function for getting things out of said massive Sass map.
 * Added a whole file full of typography related mixins. It was kinda weird having them in an atom file. 
+* Added a bunch of other mixins too (and maybe removed one or two).
 * Removed Sass functions for embedding SVGs in CSS. I ain't about that life (not anymore, anyway). 
 
 ### 4.0.0
