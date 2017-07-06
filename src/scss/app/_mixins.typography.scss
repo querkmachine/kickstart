@@ -99,20 +99,25 @@
 }
 
 /**
- * Text antialiasing
+ * Typography helpers
  */
 
+
+// Antialias text
 @mixin antialiasing {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/**
- * Hide text for old school image replacement
- */
-
+// Hide copy (for image replacement)
 @mixin hide-text {
 	text-indent: 110%;
 	white-space: nowrap;
 	overflow: hidden;
+}
+
+// Force long words to break across lines
+@mixin force-wrap {
+	white-space: pre-line;
+	word-wrap: break-word;
 }
