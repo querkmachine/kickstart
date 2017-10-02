@@ -3,11 +3,13 @@
 const gulp = require('gulp');
 const plumber = require('gulp-plumber');
 const sourcemaps = require('gulp-sourcemaps');
+const config = require('./package.json');
 
-gulp.task('default', ['watch']);
+gulp.task('default', ['fractal:watch', 'watch']);
 gulp.task('lint', ['sass:lint', 'js:lint'])
+gulp.task('patterns', ['fractal:build']);
 gulp.task('production', ['sass', 'js', 'js:vendor', 'images', 'fonts']);
-gulp.task('force', ['production']);
+gulp.task('force', ['production', 'patterns']);
 
 gulp.task('watch', () => {
 	const watch = require('gulp-watch');
@@ -56,7 +58,7 @@ gulp.task('js', ['js:vendor'], () => {
 	const merge = require('merge-stream');
 	var folders = ['scripts'];
 	var tasks = folders.map((folder) => {
-		return gulp.src(`./src/js/${folder}/**/*.js`, {
+		return gulp.src([`./src/js/${folder}/app.js`, `./src/js/${folder}/**/*.js`], {
 			base: `./src/js/${folder}`
 		})
 		.pipe(plumber())
@@ -105,13 +107,95 @@ gulp.task('images', () => {
 	gulp.src('./src/images/**/*')
 	.pipe(plumber())
 	.pipe(newer('./dst/images'))
-	.pipe(imagemin({
-		optimizationLevel: 5, // png
-		progressive: true, // jpg
-		interlaced: true, // gif 
-		multipass: true // svg
-	}))
+	.pipe(imagemin([
+		imagemin.jpegtran({
+			progressive: true
+		}),
+		imagemin.optipng({
+			optimizationLevel: 5
+		}),
+		imagemin.gifsicle({
+			interlaced: true
+		}),
+		imagemin.svgo({
+			multipass: true,
+			plugins: [
+				{ cleanupIDs: false }
+			]
+		})
+	]))
 	.pipe(gulp.dest('./dst/images'));
+});
+
+gulp.task('favicon', () => {
+	const fs = require('fs');
+	const faviconGenerator = require('gulp-real-favicon');
+	const batchReplace = require('gulp-batch-replace');
+	faviconGenerator.generateFavicon({
+		masterPicture: './src/images/favicon.png',
+		dest: './dst/images/favicon/',
+		iconsPath: '/dst/images/favicon/',
+		design: {
+			ios: {
+				pictureAspect: 'backgroundAndMargin',
+				backgroundColor: config.color,
+				margin: '14%',
+				assets: {
+					ios6AndPriorIcons: false,
+					ios7AndLaterIcons: false,
+					precomposedIcons: false,
+					declareOnlyDefaultIcon: true
+				}
+			},
+			desktopBrowser: {},
+			windows: {
+				pictureAspect: 'whiteSilhouette',
+				backgroundColor: config.color,
+				onConflict: 'override',
+				assets: {
+					windows80Ie10Tile: false,
+					windows10Ie11EdgeTiles: {
+						small: false,
+						medium: true,
+						big: false,
+						rectangle: false
+					}
+				}
+			},
+			androidChrome: {
+				pictureAspect: 'shadow',
+				themeColor: config.color,
+				manifest: {
+					name: config.name,
+					display: 'standalone',
+					orientation: 'notSet',
+					onConflict: 'override',
+					declared: true
+				},
+				assets: {
+					legacyIcon: false,
+					lowResolutionIcons: false
+				}
+			},
+			safariPinnedTab: {
+				pictureAspect: 'blackAndWhite',
+				threshold: 75,
+				themeColor: config.color
+			}
+		},
+		settings: {
+			compression: 4,
+			scalingAlgorithm: 'Lanczos',
+			errorOnImageTooSmall: false
+		},
+		markupFile: 'faviconData.json'
+	}, function() {
+		gulp.src('./index.html')
+		.pipe(batchReplace([
+			[/<!-- inject:favicons -->[\S\s]*<!-- endinject -->/g, `<!-- inject:favicons -->${JSON.parse(fs.readFileSync('faviconData.json')).favicon.html_code}<!-- endinject -->`]
+		]))
+		.pipe(gulp.dest('.'));
+	});
 });
 
 /**
@@ -121,4 +205,77 @@ gulp.task('images', () => {
 gulp.task('fonts', () => {
 	gulp.src('./src/type/**/*')
 	.pipe(gulp.dest('./dst/type'));
+});
+
+/**
+ * Fractal 
+ */
+
+const path = require('path');
+const fractal = require('@frctl/fractal').create();
+const mandelbrot = require('@frctl/mandelbrot');
+const nunjucks = require('@frctl/nunjucks')({
+	filters: {
+		random: function(min, max) {
+			return Math.floor(Math.random() * (max - min + 1)) + min;
+		},
+		slugify: function(string) {
+			return string.toLowerCase().replace(/\W/g, '-');
+		}
+	}
+});
+
+// Fractal config
+fractal.set('project.title', `${config.name} component library`);
+
+// Components config
+fractal.components.engine(nunjucks);
+fractal.components.set('ext', '.html');
+fractal.components.set('path', path.join(__dirname, 'fractal/components'));
+fractal.components.set('default.preview', '@preview');
+fractal.components.set('default.status', 'prototype');
+fractal.components.set('default.display', {
+	'min-width': '320px'
+});
+
+// Docs config
+fractal.docs.engine(nunjucks);
+fractal.docs.set('path', path.join(__dirname, 'fractal/docs'));
+fractal.docs.set('default.status', 'draft');
+
+// Build config
+fractal.web.set('static.path', 'dst');
+fractal.web.set('builder.dest', 'components');
+fractal.web.theme(mandelbrot({
+	'skin': 'purple',
+	'nav': ['docs', 'components'],
+	'styles': ['default', '/css/styleguide.css'],
+	'format': 'yaml'
+}));
+
+gulp.task('fractal:watch', () => {
+	const logger = fractal.cli.console;
+	const server = fractal.web.server({
+		sync: true
+	});
+	server.on('error', (err) => {
+	    logger.error(err.message);
+	});
+	return server.start().then(() => {
+		logger.success(`Fractal server is now running at ${server.url}.`);
+	});
+});
+
+gulp.task('fractal:build', () => {
+    const logger = fractal.cli.console;
+	const builder = fractal.web.builder();
+	builder.on('progress', (completed, total) => {
+	    logger.update(`Exported ${completed} of ${total} items.`, 'info');
+	});
+	builder.on('error', (err) => {
+	    logger.error(err.message);
+	});
+	return builder.build().then(() => {
+		logger.success('Fractal build completed.');
+	});
 });

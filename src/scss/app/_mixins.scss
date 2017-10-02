@@ -1,7 +1,12 @@
-// Media query management
+/**
+ * Media query management
+ * @param {string}  $breakpoint  The name of the breakpoint OR a media query string.
+ */
+
 @mixin mq($breakpoint) {
-	@if map-has-key($breakpoints, $breakpoint) {
-		@media #{map-get($breakpoints, $breakpoint)} {
+	$map-breakpoints: map-get($config, breakpoints);
+	@if map-has-key($map-breakpoints, $breakpoint) {
+		@media #{map-get($map-breakpoints, $breakpoint)} {
 			@content;
 		}
 	}
@@ -12,7 +17,10 @@
 	}
 }
 
-// Accessible content hiding
+/**
+ * Accessible content hiding
+ */
+
 @mixin hidden {
 	position: absolute;
 	width: 1px;
@@ -24,8 +32,23 @@
 	clip: rect(0 0 0 0);
 }
 
-// Non-overflow-based clearfix (for elements that need 
-// things to be able to go outside them)
+/**
+ * Accessible content showing
+ */
+
+@mixin visible {
+	position: static;
+	width: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	clip: auto;
+}
+
+/**
+ * Non-overflow-based clearfix (for elements that need things to be able to go outside them)
+ */
+
 @mixin clearfix {
 	&:before,
 	&:after {
@@ -37,7 +60,10 @@
 	}
 }
 
-// Input placeholders
+/**
+ * Input placeholder styling
+ */
+
 @mixin placeholder {
 	&::-webkit-input-placeholder { @content; }
 	&:-moz-placeholder { @content; }
@@ -45,9 +71,20 @@
 	&:-ms-input-placeholder { @content; }
 }
 
-// Hide text for old school text replacement
-@mixin hide-text {
-	text-indent: 110%;
-	white-space: nowrap;
-	overflow: hidden;
+/**
+ * Selection highlight styling
+ */
+
+@mixin selection {
+	::-moz-selection { @content; }
+	::selection { @content; }
+}
+
+/** 
+ * Disable selection (do not use this unless you're really sure about it)
+ */
+
+@mixin disable-selection {
+	-webkit-touch-callout: none;
+	user-select: none;
 }
