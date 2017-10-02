@@ -5,7 +5,8 @@ html {
 body {
 	@include font-default;
 	@include size-default;
+	padding-left: constant(safe-area-inset-left);
+	padding-right: constant(safe-area-inset-right);
 	background-color: transparent;
 	color: config(palette, neutral, darkest);
-
 }
