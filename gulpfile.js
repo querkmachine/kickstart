@@ -249,7 +249,7 @@ fractal.web.set('builder.dest', 'components');
 fractal.web.theme(mandelbrot({
 	'skin': 'purple',
 	'nav': ['docs', 'components'],
-	'styles': ['default', '/css/styleguide.css'],
+	'styles': ['default'],
 	'format': 'yaml'
 }));
 
