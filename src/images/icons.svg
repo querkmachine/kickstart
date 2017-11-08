@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+	<!-- UI -->
+	<symbol id="close" viewBox="0 0 26 26">
+		<path d="M.298 24.292l24-24L25.71 1.71l-23.998 24z"/>
+		<path d="M.298 1.708L1.712.293l24 24-1.415 1.414z"/>
+	</symbol>
+	<symbol id="search" viewBox="0 0 26 26">
+		<path d="M17 18a9 9 0 1 1 9-9 9 9 0 0 1-9 9zm0-16a7 7 0 1 0 7 7 7 7 0 0 0-7-7z"/>
+		<path d="M.298 24.292l10-10 1.413 1.415-9.996 10zM17 14v-2c2.21 0 3-.79 3-3h2c0 3.32-1.68 5-5 5z"/>
+	</symbol>
+	<!-- Arrows -->
+	<symbol id="chevron-up" viewBox="0 0 13 26">
+		<path d="M24.36 12.77L13 3.3 1.64 12.77.36 11.23 13 .7l12.64 10.53-1.28 1.54"/>
+	</symbol>
+	<symbol id="chevron-right" viewBox="0 0 13 26">
+		<path d="M1.77 25.64L.23 24.36 9.7 13 .23 1.64 1.77.36 12.3 13 1.77 25.64"/>
+	</symbol>
+	<symbol id="chevron-down" viewBox="0 0 26 13">
+		<path d="M13 12.3L.36 1.77 1.64.23 13 9.7 24.36.23l1.28 1.54L13 12.3"/>
+	</symbol>
+	<symbol id="chevron-left" viewBox="0 0 13 26">
+		<path d="M11.23 25.64L.7 13 11.23.36l1.54 1.28L3.3 13l9.47 11.36-1.54 1.28"/>
+	</symbol>
+</svg>
