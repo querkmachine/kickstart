@@ -18,49 +18,6 @@
 }
 
 /**
- * Accessible content hiding
- */
-
-@mixin hidden {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	border: 0;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
-}
-
-/**
- * Accessible content showing
- */
-
-@mixin visible {
-	position: static;
-	width: auto;
-	height: auto;
-	margin: 0;
-	overflow: visible;
-	clip: auto;
-}
-
-/**
- * Non-overflow-based clearfix (for elements that need things to be able to go outside them)
- */
-
-@mixin clearfix {
-	&:before,
-	&:after {
-		display: table;
-		content: " ";
-	}
-	&:after {
-		clear: both;
-	}
-}
-
-/**
  * Input placeholder styling
  */
 

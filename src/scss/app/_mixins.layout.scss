@@ -1,0 +1,56 @@
+/**
+ * Non-overflow-based clearfix (for elements that need things to be able to go outside them)
+ */
+
+@mixin clearfix {
+	&:before,
+	&:after {
+		display: table;
+		content: " ";
+	}
+	&:after {
+		clear: both;
+	}
+}
+
+/**
+ * Accessible content hiding
+ */
+
+@mixin hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	border: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+}
+
+/**
+ * Accessible content showing
+ */
+
+@mixin visible {
+	position: static;
+	width: auto;
+	height: auto;
+	margin: 0;
+	overflow: visible;
+	clip: auto;
+}
+
+/**
+ * Device safe area mixin
+ * Cause this is gloriously inconsistent right now.
+ * Also Sass doesn't support min/max CSS functions properly yet so stuff needs to be escaped weirdly.
+ */
+
+@mixin safe-inset($property, $side, $min: 0px) {
+    #{$property}: $min;
+    #{$property}: calc(#{$min} + constant(safe-area-inset-#{$side}));
+    @supports (padding: m#{a}x(0px)) {
+        #{$property}: m#{a}x(#{$min}, env(safe-area-inset-#{$side}));
+    }
+}

@@ -20,8 +20,3 @@
 		left: 0;
 	}
 }
-
-*:focus {
-	outline: 3px solid config(palette, context, accessibility);
-	outline-offset: 0; // fixes some weirdness 
-}

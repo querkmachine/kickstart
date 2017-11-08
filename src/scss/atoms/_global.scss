@@ -5,8 +5,13 @@ html {
 body {
 	@include font-default;
 	@include size-default;
-	padding-left: constant(safe-area-inset-left);
-	padding-right: constant(safe-area-inset-right);
+	@include safe-inset(padding-right, right);
+	@include safe-inset(padding-left, left);
 	background-color: transparent;
 	color: config(palette, neutral, darkest);
+}
+
+*:focus {
+	outline: 3px solid config(palette, context, accessibility);
+	outline-offset: 0; // fixes some weirdness 
 }
