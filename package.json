@@ -3,7 +3,11 @@
   "version": "5.0.0",
   "color": "#dddddd",
   "description": "",
-  "browsers": ["last 2 version", "ie 10", "ie 11"],
+  "browsers": [
+    "last 2 version",
+    "ie 10",
+    "ie 11"
+  ],
   "private": true,
   "main": "gulpfile.js",
   "readme": "",
@@ -24,6 +28,7 @@
     "@frctl/fractal": "^1.1.7",
     "@frctl/mandelbrot": "^1.2.0",
     "@frctl/nunjucks": "^1.0.3",
+    "babel-core": "^6.26.0",
     "babel-preset-env": "^1.6.1",
     "gifsicle": "^3.0.4",
     "gulp": "^3.9.1",
