@@ -6,6 +6,25 @@ Kickstart is my boilerplate code for new projects. It provides a basic "chrome" 
 Version history
 ---------------
 
+### 6.0.0 (beta)
+Quality of life improvements and general updates that probably break stuff whoops sorry. 
+
+* Added a default SVG icon spritesheet, populated with some [Plimsoll Icons](https://github.com/severnbronies/Plimsoll-Icons).
+* Changed default Modernizr config: 
+  * Additionally tests support for: CSS Grid Layout (spec and legacy support), CSS background blend modes, CSS @supports.
+  * No longer tests for: CSS gradients.
+
+### Sass 
+* Split some mixins into their own file, `_mixins.layout.scss`.
+* Changed `_accessibility.scss` to `_skiplink.scss` and moved global accessibility styles to `_global.scss`; cause that's kinda sensible really. 
+* Added a typography mixin for viewport-based sizes with capped min and max. 
+* Added a (hopefully not long for this world) mixin to manage the clusterfuck that is the iOS 11's `constant()`/`env()`/`min()`/`max()` debacle. 
+
+### JavaScript
+* Update Babel to latest version, along with migrating to `babel-preset-env`. 
+* Move to using classes for JavaScript, rather than nesting functions. I'm trying to force myself into that way of doing stuff.
+* Add a file full of JS helper functions that I use all the time.
+
 ### 5.0.0
 This update does a whole lot of opinionated changes aimed entirely at making my life easier. There's new sensible defaults, more node packages tailored for the way I like to build things, and a whole lot of breaking changes. You have been warned. 
 

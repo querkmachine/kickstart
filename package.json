@@ -1,6 +1,6 @@
 {
   "name": "Kickstart",
-  "version": "5.0.0",
+  "version": "6.0.0",
   "color": "#dddddd",
   "description": "",
   "browsers": [
@@ -11,15 +11,12 @@
   "private": true,
   "main": "gulpfile.js",
   "readme": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/querkmachine/kickstart.git"
   },
   "author": "Kimberly Grey",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/querkmachine/kickstart/issues"
   },
