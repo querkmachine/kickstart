@@ -40,7 +40,7 @@ Helper.Cookie = class {
 	static Destroy(name) {
 		Helper.Cookie.Set(name, '', -1);
 	}
-}
+};
 
 Helper.Focus = class {
 	/**
@@ -77,10 +77,10 @@ Helper.Focus = class {
 					firstFocusable.focus();
 					e.preventDefault();
 				}
-			};
+			}
 		});
 	}
 	static Release($element, namespace) {
 		$element.off(`keydown.${namespace}`);
 	}
-}
+};

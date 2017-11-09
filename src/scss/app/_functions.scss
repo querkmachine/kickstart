@@ -14,7 +14,7 @@
 	@else {
 		$return: map-get(map-get($config, $section), $key);
 	}
-	@if type_of($return) == 'string' {
+	@if type_of($return) == "string" {
 		@return unquote($return);
 	}
 	@else {

@@ -53,7 +53,7 @@
 @mixin size-responsive($size, $min: false, $max: false) {
 	// Hat tip to Eduardo Boucas. https://css-tricks.com/snippets/sass/viewport-sized-typography-minimum-maximum-sizes/
 	$sizeUnitless: $size / ($size - $size + 1);
-	$dimension: if(unit($size) == 'vh', 'height', 'width');
+	$dimension: if(unit($size) == "vh", "height", "width");
 	$breakpointMin: $min / $sizeUnitless * 100;
 	@media (max-#{$dimension}: #{$breakpointMin}) {
 		font-size: $min;
