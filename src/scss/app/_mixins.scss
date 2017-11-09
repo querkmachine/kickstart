@@ -1,19 +1,36 @@
 /**
- * Media query management
- * @param {string}  $breakpoint  The name of the breakpoint OR a media query string.
+ * Media query management. Hat tip to Tim Knight.
+ * https://medium.com/developing-with-sass/refactoring-my-simple-sass-breakpoint-mixin-71205dd6badd
+ * @param {string}  $min The name of the breakpoint (and up!) to apply styles to.
+ * @param {string}  $max The name of the breakpoint (and down!) to apply styles to.
  */
 
-@mixin mq($breakpoint) {
-	$map-breakpoints: map-get($config, breakpoints);
-	@if map-has-key($map-breakpoints, $breakpoint) {
-		@media #{map-get($map-breakpoints, $breakpoint)} {
-			@content;
+@mixin mq($min, $max: false) {
+	$map: map-get($config, breakpoints);
+	$query: "";
+	@if map-has-key($map-breakpoints, $min) {
+		$query: append($query, "(min-width: #{map-get($map, $min)}");
+	}
+	@if $max != false {
+		@if map-has-key($map-breakpoints, $min) and map-has-key($map-breakpoints, $max) {
+			$query: append($query, " and ");
+		}
+		@if map-has-key($map-breakpoints, $max) {
+			$query: append($query, "(max-width: #{map-get($map, $max) - 1px}");
 		}
 	}
-	@else {
-		@media #{$breakpoint} {
-			@content;
-		}
+	@media screen and #{$query} {
+		@content;
+	}
+}
+
+/**
+ * Print stylesheets are a thing too.
+ */
+
+@mixin print {
+	@media only print {
+		@content; 
 	}
 }
 

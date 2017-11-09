@@ -1,13 +1,13 @@
-Kickstart
-=========
+# Kickstart
 
-Kickstart is my boilerplate code for new projects. It provides a basic "chrome" page with various common features, as well as an atomic Sass framework, common Javascript libraries and Gulp for processing.
+Kickstart is my boilerplate code for new projects. It provides a basic "chrome" page with various common features, as well as an atomic Sass framework, Fractal-based component library and a Gulp toolchain. It also features a bunch of boilerplate code that I usually end up including into projects anyway. 
 
-Version history
----------------
+As you may expect of any sensible project, the develop branch has the latest and greatest, utterly untested in production environments stuff; master has all the tried and tested stuff. Don't mix them up, for your own sake.
 
-### 6.0.0 (beta)
-Quality of life improvements and general updates that probably break stuff whoops sorry. 
+## Version history
+
+### 6.0.0
+Quality of life improvements and general updates that probably break stuff whoops sorry. (Boy the consistency with which I write this changelog has gone downhill hasn't it?)
 
 * Added a default SVG icon spritesheet, populated with some [Plimsoll Icons](https://github.com/severnbronies/Plimsoll-Icons).
 * Changed default Modernizr config: 
@@ -16,14 +16,17 @@ Quality of life improvements and general updates that probably break stuff whoop
 
 ### Sass 
 * Split some mixins into their own file, `_mixins.layout.scss`.
-* Changed `_accessibility.scss` to `_skiplink.scss` and moved global accessibility styles to `_global.scss`; cause that's kinda sensible really. 
 * Added a typography mixin for viewport-based sizes with capped min and max. 
 * Added a (hopefully not long for this world) mixin to manage the clusterfuck that is the iOS 11's `constant()`/`env()`/`min()`/`max()` debacle. 
+* Changed `_accessibility.scss` to `_skiplink.scss` and moved global accessibility styles to `_global.scss`; cause that's kinda sensible really. 
+* Changed the `mq()` mixin to be more versatile with automatically making min/max media queries; but it doesn't do 'stringy' media queries anymore. (Was it ever necessary to put those through a mixin, really?)
+* Added a `print()` mixin for print styles too. Been doing a few of those lately.
 
 ### JavaScript
+* Added a file full of JS helper functions that I use all the time.
 * Update Babel to latest version, along with migrating to `babel-preset-env`. 
 * Move to using classes for JavaScript, rather than nesting functions. I'm trying to force myself into that way of doing stuff.
-* Add a file full of JS helper functions that I use all the time.
+* Removed Herobrine. 
 
 ### 5.0.0
 This update does a whole lot of opinionated changes aimed entirely at making my life easier. There's new sensible defaults, more node packages tailored for the way I like to build things, and a whole lot of breaking changes. You have been warned. 
