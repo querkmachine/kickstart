@@ -9,14 +9,14 @@
 	$map: map-get($config, breakpoints);
 	$query: "";
 	@if map-has-key($map, $min) {
-		$query: append($query, "(min-width: #{map-get($map, $min)}");
+		$query: append($query, "(min-width: #{map-get($map, $min)})");
 	}
 	@if $max != false {
 		@if map-has-key($map, $min) and map-has-key($map, $max) {
 			$query: append($query, " and ");
 		}
 		@if map-has-key($map, $max) {
-			$query: append($query, "(max-width: #{map-get($map, $max) - 1px}");
+			$query: append($query, "(max-width: #{map-get($map, $max) - 1px})");
 		}
 	}
 	@media screen and #{$query} {
