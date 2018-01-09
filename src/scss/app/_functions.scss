@@ -1,4 +1,11 @@
-// Get things from configuration
+/**
+ * Get things from configuration map.
+ * @param  {string}  $section  Configuration section to get.
+ * @param  {string}  $key      Configuration key.
+ * @param  {string}  $variant  Configuration variant.
+ * @return {any}               The thing you just asked for.
+ */
+
 @function config($section, $key, $variant: false) {
 	$return: false;
 	@if $variant {
@@ -7,7 +14,7 @@
 	@else {
 		$return: map-get(map-get($config, $section), $key);
 	}
-	@if type_of($return) == 'string' {
+	@if type_of($return) == "string" {
 		@return unquote($return);
 	}
 	@else {
@@ -15,17 +22,22 @@
 	}
 }
 
-// Strip units from values
+/**
+ * Strip units from values
+ * @param  {string}  $num  A numerical value with unit attached.
+ * @return {number}        The value with unit stripped.
+ */
+
 @function strip-unit($num) {
 	@return $num / ($num * 0 + 1);
 }
 
-// Convert pixels to rems
-@function convert-to-rem($value, $base-value: $global-base)  {
-	$value: strip-unit($value) / strip-unit($base-value) * 1rem;
-	@if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
-	@return $value;
-}
+/**
+ * Converts a pixel measurement into a rem measurement. 
+ * @param  {string} $value       Pixel unit measurement (can be singular or list).
+ * @param  {string} $base-value  The globally defined rem unit.
+ * @return {string}              Rem equivalent to the input pixel units.
+ */
 
 @function rem-calc($values, $base-value: config(layout, rem-unit)) {
 	$max: length($values);
@@ -35,4 +47,10 @@
 		$emValues: append($emValues, convert-to-rem(nth($values, $i), $base-value));
 	}
 	@return $emValues;
+}
+
+@function convert-to-rem($value, $base-value: $global-base)  {
+	$value: strip-unit($value) / strip-unit($base-value) * 1rem;
+	@if ($value == 0rem) { $value: 0; } // Turn 0rem into 0
+	@return $value;
 }

@@ -1,6 +1,6 @@
 # compiled stuff directories
-dst/
-components/
+/dst/
+/components/
 
 # npm type things 
 node_modules/

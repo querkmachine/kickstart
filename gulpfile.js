@@ -33,7 +33,7 @@ gulp.task('sass', () => {
 		outputStyle: 'compressed'
 	}))
 	.pipe(autoprefixer({
-		browsers: ['last 2 version', 'ie 9', 'ie 10'],
+		browsers: config.browsers,
 		cascade: true
 	}))
 	.pipe(gulp.dest('./dst/css'));
@@ -58,13 +58,19 @@ gulp.task('js', ['js:vendor'], () => {
 	const merge = require('merge-stream');
 	var folders = ['scripts'];
 	var tasks = folders.map((folder) => {
-		return gulp.src([`./src/js/${folder}/app.js`, `./src/js/${folder}/**/*.js`], {
+		return gulp.src([`./src/js/${folder}/App.js`, `./src/js/${folder}/**/*.js`], {
 			base: `./src/js/${folder}`
 		})
 		.pipe(plumber())
 		.pipe(sourcemaps.init())
 		.pipe(babel({
-			presets: ['es2015']
+			presets: [
+				['env', {
+					'targets': {
+						'browsers': config.browsers
+					}
+				}]
+			]
 		}))
 		.pipe(concat(`${folder}.js`))
 		.pipe(sourcemaps.write('.'))
@@ -127,6 +133,77 @@ gulp.task('images', () => {
 	.pipe(gulp.dest('./dst/images'));
 });
 
+gulp.task('favicon', () => {
+	const fs = require('fs');
+	const faviconGenerator = require('gulp-real-favicon');
+	const batchReplace = require('gulp-batch-replace');
+	faviconGenerator.generateFavicon({
+		masterPicture: './src/images/favicon.png',
+		dest: './dst/images/favicon/',
+		iconsPath: '/dst/images/favicon/',
+		design: {
+			ios: {
+				pictureAspect: 'backgroundAndMargin',
+				backgroundColor: config.color,
+				margin: '14%',
+				assets: {
+					ios6AndPriorIcons: false,
+					ios7AndLaterIcons: false,
+					precomposedIcons: false,
+					declareOnlyDefaultIcon: true
+				}
+			},
+			desktopBrowser: {},
+			windows: {
+				pictureAspect: 'whiteSilhouette',
+				backgroundColor: config.color,
+				onConflict: 'override',
+				assets: {
+					windows80Ie10Tile: false,
+					windows10Ie11EdgeTiles: {
+						small: false,
+						medium: true,
+						big: false,
+						rectangle: false
+					}
+				}
+			},
+			androidChrome: {
+				pictureAspect: 'shadow',
+				themeColor: config.color,
+				manifest: {
+					name: config.name,
+					display: 'standalone',
+					orientation: 'notSet',
+					onConflict: 'override',
+					declared: true
+				},
+				assets: {
+					legacyIcon: false,
+					lowResolutionIcons: false
+				}
+			},
+			safariPinnedTab: {
+				pictureAspect: 'blackAndWhite',
+				threshold: 75,
+				themeColor: config.color
+			}
+		},
+		settings: {
+			compression: 4,
+			scalingAlgorithm: 'Lanczos',
+			errorOnImageTooSmall: false
+		},
+		markupFile: 'faviconData.json'
+	}, function() {
+		gulp.src('./index.html')
+		.pipe(batchReplace([
+			[/<!-- inject:favicons -->[\S\s]*<!-- endinject -->/g, `<!-- inject:favicons -->${JSON.parse(fs.readFileSync('faviconData.json')).favicon.html_code}<!-- endinject -->`]
+		]))
+		.pipe(gulp.dest('.'));
+	});
+});
+
 /**
  * Typography teleportation
  */
@@ -178,7 +255,7 @@ fractal.web.set('builder.dest', 'components');
 fractal.web.theme(mandelbrot({
 	'skin': 'purple',
 	'nav': ['docs', 'components'],
-	'styles': ['default', '/css/styleguide.css'],
+	'styles': ['default'],
 	'format': 'yaml'
 }));
 

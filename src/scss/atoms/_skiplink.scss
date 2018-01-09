@@ -1,0 +1,22 @@
+.skiplink {
+	@include font-default;
+	@include size-default;
+	@include lead-default;
+	display: block;
+	position: absolute;
+	top: -9999em;
+	left: -9999em;
+	padding: 1rem 2rem;
+	background-color: config(palette, context, accessibility);
+	color: #000;
+	font-weight: bold;
+	text-align: center;
+	text-decoration: none;
+	z-index: config(layers, modal);
+	&:focus {
+		position: fixed;
+		top: 0;
+		right: 0;
+		left: 0;
+	}
+}

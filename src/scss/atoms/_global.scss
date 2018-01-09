@@ -1,11 +1,18 @@
 html {
 	background-color: #fff;
+	font-size: config(layout, rem-unit);
 }
 
 body {
 	@include font-default;
 	@include size-default;
+	@include safe-inset(padding-right, right);
+	@include safe-inset(padding-left, left);
 	background-color: transparent;
 	color: config(palette, neutral, darkest);
+}
 
+*:focus {
+	outline: 3px solid config(palette, context, accessibility);
+	outline-offset: 0; // fixes some weirdness 
 }

@@ -1,10 +1,11 @@
 $config: (
 	breakpoints: (
-		ent: 'only screen and (min-width: 420px)',
-		tos: 'only screen and (min-width: 600px)',
-		tng: 'only screen and (min-width: 770px)',
-		ds9: 'only screen and (min-width: 1024px)',
-		voy: 'only screen and (min-width: 1280px)',
+		ent: 420px,
+		dis: 600px,
+		tos: 770px,
+		tng: 1024px,
+		ds9: 1280px,
+		voy: 1600px
 	),
 	fonts: (
 		header-font-family: "Montserrat, 'Helvetica Neue', Arial, sans-serif",

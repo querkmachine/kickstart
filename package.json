@@ -1,41 +1,47 @@
 {
   "name": "Kickstart",
-  "version": "5.0.0",
+  "version": "6.0.0",
+  "color": "#dddddd",
   "description": "",
+  "browsers": [
+    "last 2 version",
+    "ie 10",
+    "ie 11"
+  ],
   "private": true,
   "main": "gulpfile.js",
   "readme": "",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "scripts": {},
   "repository": {
     "type": "git",
     "url": "https://github.com/querkmachine/kickstart.git"
   },
   "author": "Kimberly Grey",
-  "license": "ISC",
   "bugs": {
     "url": "https://github.com/querkmachine/kickstart/issues"
   },
   "homepage": "https://github.com/querkmachine/kickstart",
   "devDependencies": {
-    "@frctl/fractal": "^1.0.11",
-    "@frctl/mandelbrot": "^1.0.7",
+    "@frctl/fractal": "^1.1.7",
+    "@frctl/mandelbrot": "^1.2.0",
     "@frctl/nunjucks": "^1.0.3",
-    "babel-preset-es2015": "^6.24.1",
+    "babel-core": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
     "gifsicle": "^3.0.4",
     "gulp": "^3.9.1",
     "gulp-autoprefixer": "^4.0.0",
-    "gulp-babel": "^6.1.2",
+    "gulp-babel": "^7.0.0",
     "gulp-batch": "^1.0.5",
+    "gulp-batch-replace": "^0.0.0",
     "gulp-concat": "^2.6.0",
     "gulp-imagemin": "^3.3.0",
     "gulp-jshint": "^2.0.1",
     "gulp-newer": "^1.2.0",
     "gulp-plumber": "^1.1.0",
+    "gulp-real-favicon": "^0.2.2",
     "gulp-sass": "^3.1.0",
-    "gulp-sass-lint": "^1.2.0",
-    "gulp-sourcemaps": "^2.6.0",
+    "gulp-sass-lint": "^1.3.3",
+    "gulp-sourcemaps": "^2.6.1",
     "gulp-watch": "^4.3.11",
     "jpegtran": "^1.0.4",
     "jshint": "^2.9.5",

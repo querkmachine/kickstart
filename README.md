@@ -1,10 +1,32 @@
-Kickstart
-=========
+# Kickstart
 
-Kickstart is my boilerplate code for new projects. It provides a basic "chrome" page with various common features, as well as an atomic Sass framework, common Javascript libraries and Gulp for processing.
+Kickstart is my boilerplate code for new projects. It provides a basic "chrome" page with various common features, as well as an atomic Sass framework, Fractal-based component library and a Gulp toolchain. It also features a bunch of boilerplate code that I usually end up including into projects anyway. 
 
-Version history
----------------
+As you may expect of any sensible project, the develop branch has the latest and greatest, utterly untested in production environments stuff; master has all the tried and tested stuff. Don't mix them up, for your own sake.
+
+## Version history
+
+### 6.0.0
+Quality of life improvements and general updates that probably break stuff whoops sorry. (Boy the consistency with which I write this changelog has gone downhill hasn't it?)
+
+* Added a default SVG icon spritesheet, populated with some [Plimsoll Icons](https://github.com/severnbronies/Plimsoll-Icons).
+* Changed default Modernizr config: 
+  * Additionally tests support for: CSS Grid Layout (spec and legacy support), CSS background blend modes, CSS @supports.
+  * No longer tests for: CSS gradients.
+
+### Sass 
+* Split some mixins into their own file, `_mixins.layout.scss`.
+* Added a typography mixin for viewport-based sizes with capped min and max. 
+* Added a (hopefully not long for this world) mixin to manage the clusterfuck that is the iOS 11's `constant()`/`env()`/`min()`/`max()` debacle. 
+* Changed `_accessibility.scss` to `_skiplink.scss` and moved global accessibility styles to `_global.scss`; cause that's kinda sensible really. 
+* Changed the `mq()` mixin to be more versatile with automatically making min/max media queries; but it doesn't do 'stringy' media queries anymore. (Was it ever necessary to put those through a mixin, really?)
+* Added a `print()` mixin for print styles too. Been doing a few of those lately.
+
+### JavaScript
+* Added a file full of JS helper functions that I use all the time.
+* Update Babel to latest version, along with migrating to `babel-preset-env`. 
+* Move to using classes for JavaScript, rather than nesting functions. I'm trying to force myself into that way of doing stuff.
+* Removed Herobrine. 
 
 ### 5.0.0
 This update does a whole lot of opinionated changes aimed entirely at making my life easier. There's new sensible defaults, more node packages tailored for the way I like to build things, and a whole lot of breaking changes. You have been warned. 
@@ -13,13 +35,16 @@ This update does a whole lot of opinionated changes aimed entirely at making my 
   * The default Gulp task will now set up a Fractal server in addition to watching for stuff. Use `gulp watch` to only do the latter. 
   * Likewise `gulp force` will now run a Fractal export. Use `gulp production` to only recompile assets. 
 * Changes to JavaScript compilation. There's now a file called `app.js`, which is always first in the concat queue, so you can initialise globals in there without having to check for their existence in every subsequent file. 
-* Updated node dependencies.
-* Removed a whole bunch of favicon code. It's now a mere five lines. 
+* Updated node dependencies, JavaScript libraries, and modified default Modernizr tests. 
+* Favicons can now be automagically generated. Add a `favicon.png` file to the images directory and it'll be resized, converted and linked up for you. 
+* Added CSS and viewport tag for the iPhone X's notch.
+* Simplied Twitter Card and OpenGraph tags.
 
 #### Sass
 * Project settings are now held in one massive Sass map, rather than multiple smaller ones and various global variables. 
 * Added a `config` function for getting things out of said massive Sass map.
 * Added a whole file full of typography related mixins. It was kinda weird having them in an atom file. 
+* Added a bunch of other mixins too (and maybe removed one or two).
 * Removed Sass functions for embedding SVGs in CSS. I ain't about that life (not anymore, anyway). 
 
 ### 4.0.0

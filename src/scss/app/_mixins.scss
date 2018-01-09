@@ -1,47 +1,64 @@
-// Media query management
-@mixin mq($breakpoint) {
-	$map-breakpoints: map-get($config, breakpoints);
-	@if map-has-key($map-breakpoints, $breakpoint) {
-		@media #{map-get($map-breakpoints, $breakpoint)} {
-			@content;
+/**
+ * Media query management. Hat tip to Tim Knight.
+ * https://medium.com/developing-with-sass/refactoring-my-simple-sass-breakpoint-mixin-71205dd6badd
+ * @param {string}  $min The name of the breakpoint (and up!) to apply styles to.
+ * @param {string}  $max The name of the breakpoint (and down!) to apply styles to.
+ */
+
+@mixin mq($min, $max: false) {
+	$map: map-get($config, breakpoints);
+	$query: "";
+	@if map-has-key($map, $min) {
+		$query: append($query, "(min-width: #{map-get($map, $min)})");
+	}
+	@if $max != false {
+		@if map-has-key($map, $min) and map-has-key($map, $max) {
+			$query: append($query, " and ");
+		}
+		@if map-has-key($map, $max) {
+			$query: append($query, "(max-width: #{map-get($map, $max) - 1px})");
 		}
 	}
-	@else {
-		@media #{$breakpoint} {
-			@content;
-		}
+	@media screen and #{$query} {
+		@content;
 	}
 }
 
-// Accessible content hiding
-@mixin hidden {
-	position: absolute;
-	width: 1px;
-	height: 1px;
-	margin: -1px;
-	padding: 0;
-	border: 0;
-	overflow: hidden;
-	clip: rect(0 0 0 0);
-}
+/**
+ * Print stylesheets are a thing too.
+ */
 
-// Non-overflow-based clearfix (for elements that need 
-// things to be able to go outside them)
-@mixin clearfix {
-	&:before,
-	&:after {
-		display: table;
-		content: " ";
-	}
-	&:after {
-		clear: both;
+@mixin print {
+	@media only print {
+		@content; 
 	}
 }
 
-// Input placeholders
+/**
+ * Input placeholder styling
+ */
+
 @mixin placeholder {
 	&::-webkit-input-placeholder { @content; }
 	&:-moz-placeholder { @content; }
 	&::-moz-placeholder { @content; }
 	&:-ms-input-placeholder { @content; }
+}
+
+/**
+ * Selection highlight styling
+ */
+
+@mixin selection {
+	::-moz-selection { @content; }
+	::selection { @content; }
+}
+
+/** 
+ * Disable selection (do not use this unless you're really sure about it)
+ */
+
+@mixin disable-selection {
+	-webkit-touch-callout: none;
+	user-select: none;
 }

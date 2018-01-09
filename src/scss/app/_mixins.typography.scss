@@ -50,6 +50,23 @@
 	font-size: rem-calc(14px);
 }
 
+@mixin size-responsive($size, $min: false, $max: false) {
+	// Hat tip to Eduardo Boucas. https://css-tricks.com/snippets/sass/viewport-sized-typography-minimum-maximum-sizes/
+	$sizeUnitless: $size / ($size - $size + 1);
+	$dimension: if(unit($size) == "vh", "height", "width");
+	$breakpointMin: $min / $sizeUnitless * 100;
+	@media (max-#{$dimension}: #{$breakpointMin}) {
+		font-size: $min;
+	}
+	@if $max {
+		$breakpointMax: $max / $sizeUnitless * 100;
+		@media (min-#{$dimension}: #{$breakpointMax}) {
+			font-size: $max;
+		}
+	}
+	font-size: $size;
+}
+
 /**
  * Leading
  */
@@ -99,20 +116,26 @@
 }
 
 /**
- * Text antialiasing
+ * Typography helpers
  */
 
+
+// Antialias text
 @mixin antialiasing {
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 }
 
-/**
- * Hide text for old school image replacement
- */
-
+// Hide copy (for image replacement)
 @mixin hide-text {
 	text-indent: 110%;
 	white-space: nowrap;
 	overflow: hidden;
+}
+
+// Force long words to break across lines
+@mixin force-wrap {
+	overflow-wrap: break-word;
+	word-wrap: break-word;
+	word-break: break-word;
 }
