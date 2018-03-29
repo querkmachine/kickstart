@@ -49,7 +49,6 @@
 
 @mixin safe-inset($property, $side, $min: 0px) {
     #{$property}: $min;
-    #{$property}: calc(#{$min} + constant(safe-area-inset-#{$side}));
     @supports (padding: m#{a}x(0px)) {
         #{$property}: m#{a}x(#{$min}, env(safe-area-inset-#{$side}));
     }
