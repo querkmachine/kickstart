@@ -21,6 +21,17 @@ gulp.task('watch', () => {
 });
 
 /*
+ * Delete all the things
+ */
+
+gulp.task('clean', () => {
+	const del = require('del');
+	return del(['dst', 'components']).then((paths) => {
+		console.log('Deleted files and folders:\n', paths.join('\n'));
+	});
+});
+
+/*
  * Sass compilation
  */
 
