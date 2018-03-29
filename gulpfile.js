@@ -69,7 +69,7 @@ gulp.task('js', ['js:vendor'], () => {
 	const merge = require('merge-stream');
 	var folders = ['scripts'];
 	var tasks = folders.map((folder) => {
-		return gulp.src([`./src/js/${folder}/App.js`, `./src/js/${folder}/**/*.js`], {
+		return gulp.src([`./src/js/${folder}/Helper.js`, `./src/js/${folder}/**/*.js`], {
 			base: `./src/js/${folder}`
 		})
 		.pipe(plumber())
