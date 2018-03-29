@@ -1,5 +1,6 @@
 {
-  "name": "Kickstart",
+  "name": "kickstart",
+  "formattedName": "Kickstart",
   "version": "6.0.0",
   "color": "#dddddd",
   "description": "",
@@ -47,6 +48,7 @@
     "jpegtran": "^1.0.4",
     "jshint": "^2.9.5",
     "merge-stream": "^1.0.0",
+    "nunjucks-date": "^1.2.0",
     "optipng": "^1.0.0",
     "svgo": "^0.7.2"
   }

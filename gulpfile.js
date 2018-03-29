@@ -183,7 +183,7 @@ gulp.task('favicon', () => {
 				pictureAspect: 'shadow',
 				themeColor: config.color,
 				manifest: {
-					name: config.name,
+					name: config.formattedName,
 					display: 'standalone',
 					orientation: 'notSet',
 					onConflict: 'override',
@@ -231,8 +231,24 @@ gulp.task('fonts', () => {
 const path = require('path');
 const fractal = require('@frctl/fractal').create();
 const mandelbrot = require('@frctl/mandelbrot');
+const nunjucksDate = require('nunjucks-date');
 const nunjucks = require('@frctl/nunjucks')({
 	filters: {
+		date: nunjucksDate,
+		currency: function(input, sign) {
+			const digitsRegex= /(\d{3})(?=\d)/g;
+			if(input == null || !isFinite(input)) {
+				throw new Error('input needs to be a number');
+			}
+			sign = sign || '£';
+			input = parseFloat(input);
+			const strVal = Math.floor(Math.abs(input)).toString();
+			const mod = strVal.length % 3;
+			const h = mod > 0 ? (strVal.slice(0, mod) + (strVal.length > 3 ? ',' : '')) : '';
+			const v = Math.abs(parseInt((input * 100) % 100, 10));
+			const float = '.' + (v < 10 ? ('0' + v) : v);
+			return (input < 0 ? '-' : '') + sign + h + strVal.slice(mod).replace(digitsRegex, '$1,') + float;
+		},
 		random: function(min, max) {
 			return Math.floor(Math.random() * (max - min + 1)) + min;
 		},
@@ -243,7 +259,7 @@ const nunjucks = require('@frctl/nunjucks')({
 });
 
 // Fractal config
-fractal.set('project.title', `${config.name} component library`);
+fractal.set('project.title', `${config.formattedName} component library`);
 
 // Components config
 fractal.components.engine(nunjucks);
@@ -251,8 +267,32 @@ fractal.components.set('ext', '.html');
 fractal.components.set('path', path.join(__dirname, 'fractal/components'));
 fractal.components.set('default.preview', '@preview');
 fractal.components.set('default.status', 'prototype');
-fractal.components.set('default.display', {
-	'min-width': '320px'
+fractal.components.set('statuses', {
+	design: {
+		label: "In design",
+		description: "Still in design phase. Do not implement.",
+		color: "#000000"
+	},
+	prototype: {
+		label: "Prototype",
+		description: "Prototype code. Do not implement.",
+		color: "#FF3333"
+	},
+	wip: {
+		label: "WIP",
+		description: "Work in progress. Implement with caution.",
+		color: "#FF9233"
+	},
+	readme: {
+		label: "Needs documentation",
+		description: "Missing documentation. Implement with caution.",
+		color: "#176BC1"
+	},
+	ready: {
+		label: "Ready",
+		description: "Code and documentation complete. Ready to implement.",
+		color: "#29CC29"
+	}
 });
 
 // Docs config
@@ -264,7 +304,7 @@ fractal.docs.set('default.status', 'draft');
 fractal.web.set('static.path', 'dst');
 fractal.web.set('builder.dest', 'components');
 fractal.web.theme(mandelbrot({
-	'skin': 'purple',
+	'skin': 'block',
 	'nav': ['docs', 'components'],
 	'styles': ['default'],
 	'format': 'yaml'

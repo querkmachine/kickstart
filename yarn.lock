@@ -4618,6 +4618,10 @@ mkdirp@0.3.0:
   version "0.3.0"
   resolved "https://registry.yarnpkg.com/mkdirp/-/mkdirp-0.3.0.tgz#1bbf5ab1ba827af23575143490426455f481fe1e"
 
+moment@^2.8.4:
+  version "2.21.0"
+  resolved "https://registry.yarnpkg.com/moment/-/moment-2.21.0.tgz#2a114b51d2a6ec9e6d83cf803f838a878d8a023a"
+
 ms@0.7.1:
   version "0.7.1"
   resolved "https://registry.yarnpkg.com/ms/-/ms-0.7.1.tgz#9cd13c03adbff25b65effde7ce864ee952017098"
@@ -4802,6 +4806,12 @@ num2fraction@^1.2.2:
 number-is-nan@^1.0.0:
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/number-is-nan/-/number-is-nan-1.0.1.tgz#097b602b53422a522c1afb8790318336941a011d"
+
+nunjucks-date@^1.2.0:
+  version "1.2.0"
+  resolved "https://registry.yarnpkg.com/nunjucks-date/-/nunjucks-date-1.2.0.tgz#187a2821984cfa7c2fba5ad3ed81d2249691a9ff"
+  dependencies:
+    moment "^2.8.4"
 
 nunjucks@^2.4.2:
   version "2.5.2"
