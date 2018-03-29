@@ -6,6 +6,17 @@ As you may expect of any sensible project, the develop branch has the latest and
 
 ## Version history
 
+### 6.1.0
+
+Mostly Fractal improvements in this update. Shouldn't break anything... hopefully.
+
+* Add `add-fractal-component.sh` script to automate making all of the HTML, YAML, Sass and readme files that each component has. 
+* Add new `date` and `currency` Nunjucks filters for Fractal.
+* Add a bunch of documentation pages for Fractal, covering colour palettes, typography, iconography and design tokens.
+* Add a `clean` Gulp task for easily deleting compiled assets.
+* Deleted `App.js` file. `Helper.js` is now the main starting point for JS compilation.
+* Deleted the use of the `constant()` CSS function in the `safe-inset` Sass mixin. This was only needed for iOS 11.0, and was replaced by `env()` in 11.2.
+
 ### 6.0.0
 Quality of life improvements and general updates that probably break stuff whoops sorry. (Boy the consistency with which I write this changelog has gone downhill hasn't it?)
 
