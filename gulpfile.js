@@ -304,9 +304,9 @@ fractal.docs.set('default.status', 'draft');
 fractal.web.set('static.path', 'dst');
 fractal.web.set('builder.dest', 'components');
 fractal.web.theme(mandelbrot({
-	'skin': 'block',
+	'skin': 'black',
 	'nav': ['docs', 'components'],
-	'styles': ['default'],
+	'styles': ['default', '/css/styleguide.css'],
 	'format': 'yaml'
 }));
 

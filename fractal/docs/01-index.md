@@ -7,13 +7,15 @@ Welcome to [Fractal](http://fractal.build). You should write something here abou
 
 ## Document statuses
 
-Components will be one of three statuses. 
+Components will be one of five statuses. 
 
 |Status|Description|
 |:-|:-|
-|<span class="Status-label" style="background-color: #f33; border-color: #f33;">Prototype</span>|Not ready for implementation.|
-|<span class="Status-label" style="background-color: #ff9233; border-color: #ff9233;">WIP</span>|Mostly complete but subject to change. Implement with caution.|
-|<span class="Status-label" style="background-color: #29cc29; border-color: #29cc29;">Ready</span>|Further changes unlikely. Ready for implementation.|
+|<span class="Status-label" style="background-color: #000; border-color: #000;">In design</span>|Still in design phase. Do not implement.|
+|<span class="Status-label" style="background-color: #f33; border-color: #f33;">Prototype</span>|Prototype code. Do not implement.|
+|<span class="Status-label" style="background-color: #ff9233; border-color: #ff9233;">WIP</span>|Work in progress. Implement with caution.|
+|<span class="Status-label" style="background-color: #176BC1; border-color: #176BC1;">Needs documentation</span>|Missing documentation. Implement with caution.|
+|<span class="Status-label" style="background-color: #29cc29; border-color: #29cc29;">Ready</span>|Code and documentation complete. Ready to implement.|
 
 Documentation will be one of two statuses.
 

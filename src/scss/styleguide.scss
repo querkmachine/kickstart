@@ -1,0 +1,69 @@
+@import 
+	 "app/settings"
+	,"app/functions"
+	,"app/mixins"
+	,"app/mixins.layout"
+	,"app/mixins.typography"
+;
+
+.Fractal-Swatch {
+	display: inline-block;
+	width: 25%;
+	margin-right: 2em;
+	margin-bottom: 3em !important;
+	position: relative;
+	background-image: linear-gradient(45deg, #ccc 25%, transparent 25%), linear-gradient(-45deg, #ccc 25%, transparent 25%), linear-gradient(45deg, transparent 75%, #ccc 75%), linear-gradient(-45deg, transparent 75%, #ccc 75%);
+	background-size: 20px 20px;
+	background-position: 0 0, 0 10px, 10px -10px, -10px 0px;
+	vertical-align: top;
+	&__swatch {
+		height: 8em;
+	}
+	&__details {
+		width: 100%;
+		padding: .5em 1em;
+		border: 1px solid #eee;
+		position: absolute;
+		right: -1em;
+		bottom: -1em;
+		background-color: #fff;
+		text-align: right;
+	}
+}
+
+.Fractal-TypeSample {
+	margin-bottom: 1rem;
+	padding: 1rem;
+	background-color: #eee;
+	white-space: nowrap;
+	overflow: hidden;
+	&__label {
+		margin-top: .5rem;
+		font-size: 12px;
+		letter-spacing: 1px;
+	}
+	&__sample {
+		line-height: 1;
+	}
+}
+
+.Fractal-Icon {
+	display: inline-block;
+	width: 25%;
+	&__preview {
+		padding: 1rem;
+		color: #000;
+		background-color: #eee;
+		&:hover {
+			color: #fff;
+			background-color: #000;
+		}
+		svg {
+			width: 100%;
+			height: 8em;
+		}
+	}
+	&__label {
+		margin-top: .5rem;
+	}
+}
