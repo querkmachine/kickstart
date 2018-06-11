@@ -2,20 +2,37 @@
 
 Kickstart is my boilerplate code for new projects. It provides a basic "chrome" page with various common features, as well as an atomic Sass framework, Fractal-based component library and a Gulp toolchain. It also features a bunch of boilerplate code that I usually end up including into projects anyway. 
 
+**This is *my* boilerplate. It's very opinionated towards how I tend to do things, so there's no guarantee that it'll be useful to you!** Feel free to use it as a learning experience, however! 
+
 As you may expect of any sensible project, the develop branch has the latest and greatest, utterly untested in production environments stuff; master has all the tried and tested stuff. Don't mix them up, for your own sake.
 
 ## Version history
 
 ### 6.1.0
 
-Mostly Fractal improvements in this update. Shouldn't break anything... hopefully.
+Mostly tooling improvements in this update. Shouldn't break anything... hopefully. (You'll be fine so long as you've not added your own customisations to the gulpfile.)
 
+#### Fractal
 * Add `add-fractal-component.sh` script to automate making all of the HTML, YAML, Sass and readme files that each component has. 
 * Add new `date` and `currency` Nunjucks filters for Fractal.
 * Add a bunch of documentation pages for Fractal, covering colour palettes, typography, iconography and design tokens.
 * Add a `clean` Gulp task for easily deleting compiled assets.
-* Deleted `App.js` file. `Helper.js` is now the main starting point for JS compilation.
-* Deleted the use of the `constant()` CSS function in the `safe-inset` Sass mixin. This was only needed for iOS 11.0, and was replaced by `env()` in 11.2.
+
+#### Build system
+* `gulp` has been updated. The gulpfile has been completely rewritten to accommodate the functional changes in Gulp 4.x.x and remove now unnecessary dependencies.
+* `gulp-sass` has also been updated to the 4.x.x branch.
+* `gulp-imagemin` has *also* been updated to the 4.x.x branch. 
+
+### Sass
+* Deleted the use of the `constant()` CSS function in the `safe-inset` Sass mixin. This was only needed for iOS 11, and was replaced by `env()` in iOS 11.2.
+
+### JavaScript
+* Added a default jshint configuration—`.jshintrc`. 
+* Deleted `App.js` as it rarely got used. `Helper.js` is now the main starting point for JS compilation.
+
+### Bugfixes
+* Gulp 4 allows tasks to run in series, even if they return values asyncronously. This should resolve occassional problems with certain tasks running before the tasks they were dependent on finishing. 
+* Fixed a misaligned icon in the default spritesheet.
 
 ### 6.0.0
 Quality of life improvements and general updates that probably break stuff whoops sorry. (Boy the consistency with which I write this changelog has gone downhill hasn't it?)
@@ -25,7 +42,7 @@ Quality of life improvements and general updates that probably break stuff whoop
   * Additionally tests support for: CSS Grid Layout (spec and legacy support), CSS background blend modes, CSS @supports.
   * No longer tests for: CSS gradients.
 
-### Sass 
+#### Sass 
 * Split some mixins into their own file, `_mixins.layout.scss`.
 * Added a typography mixin for viewport-based sizes with capped min and max. 
 * Added a (hopefully not long for this world) mixin to manage the clusterfuck that is the iOS 11's `constant()`/`env()`/`min()`/`max()` debacle. 
@@ -33,7 +50,7 @@ Quality of life improvements and general updates that probably break stuff whoop
 * Changed the `mq()` mixin to be more versatile with automatically making min/max media queries; but it doesn't do 'stringy' media queries anymore. (Was it ever necessary to put those through a mixin, really?)
 * Added a `print()` mixin for print styles too. Been doing a few of those lately.
 
-### JavaScript
+#### JavaScript
 * Added a file full of JS helper functions that I use all the time.
 * Update Babel to latest version, along with migrating to `babel-preset-env`. 
 * Move to using classes for JavaScript, rather than nesting functions. I'm trying to force myself into that way of doing stuff.
