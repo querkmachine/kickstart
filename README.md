@@ -15,7 +15,7 @@ Mostly tooling improvements in this update. A lot of stuff has been changed, but
 #### Fractal
 * Add `add-fractal-component.sh` script to automate making all of the HTML, YAML, Sass and readme files that each component has. 
 * Add new `date` and `currency` Nunjucks filters for Fractal.
-* Add a bunch of documentation pages for Fractal, covering colour palettes, typography, iconography and design tokens.
+* Add a bunch of documentation pages for Fractal, covering colour palettes, typography, iconography, design tokens, microcopy and the new Sass spacing mixins.
 * Add a `clean` Gulp task for easily deleting compiled assets.
 
 #### Build system
