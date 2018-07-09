@@ -26,6 +26,7 @@ Mostly tooling improvements in this update. A lot of stuff has been changed, but
 ### Sass
 * New spacing functions and mixins have been added to provide more consistency with spacing. [Hat tip to the GOV.UK team.](https://design-system.service.gov.uk/styles/spacing/)
 * Renamed the `animation` Sass group to the more generic `aesthetic`. 
+* Turned the focus style into a mixin and placed it into a new file, `_mixins.theme.scss`. 
 * Deleted the use of the `constant()` CSS function in the `safe-inset` Sass mixin. This was only needed for iOS 11, and was replaced by `env()` in iOS 11.2.
 
 ### JavaScript

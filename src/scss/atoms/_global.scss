@@ -12,7 +12,14 @@ body {
 	color: config(palette, neutral, darkest);
 }
 
-*:focus {
-	outline: 3px solid config(palette, context, accessibility);
-	outline-offset: 0; // fixes some weirdness 
+a,
+input,
+textarea,
+select,
+button,
+[contenteditable],
+[tabindex] {
+	&:focus {
+		@include focus-ring;
+	}
 }

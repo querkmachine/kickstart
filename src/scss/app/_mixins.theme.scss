@@ -1,0 +1,9 @@
+/**
+ * Accessibility focus ring
+ * For accessibility and generally helping users know where they are when tabbing through forms.
+ */
+
+ @mixin focus-ring {
+    outline: 3px dotted config(palette, context, accessibility);
+	outline-offset: 0; // fixes some weirdness 
+}
