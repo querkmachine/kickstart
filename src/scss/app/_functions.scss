@@ -23,6 +23,26 @@
 }
 
 /**
+ * Get some of that pre-defined spacing parameters.
+ * @param  {number}  $level  The level of spacing desired.
+ * @param  {boolean} $large  Whether to get the large scale version or not.
+ * @return {any}             A number or pixel measurement corresponding to the requested spacing.
+ */
+
+ @function spacing($level, $size: 'small') {
+	$spacing: config(layout, spacing, $level);
+	@if type-of($spacing) == 'map' {
+		@if $size == 'large' {
+			$spacing: map-get($spacing, large);
+		}
+		@else {
+			$spacing: map-get($spacing, small);
+		}
+	}
+	@return $spacing;
+}
+
+/**
  * Strip units from values
  * @param  {string}  $num  A numerical value with unit attached.
  * @return {number}        The value with unit stripped.

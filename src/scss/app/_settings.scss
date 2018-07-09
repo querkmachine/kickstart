@@ -39,6 +39,18 @@ $config: (
 	),
 	animation: (),
 	layout: (
-		rem-unit: 16px
+		rem-unit: 16px,
+		spacing: (
+			0: 0,
+			1: .25rem,
+			2: .5rem,
+			3: 1rem,
+			4: (small: 1rem, large: 1.25rem),
+			5: (small: 1rem, large: 1.5rem),
+			6: (small: 1.25rem, large: 2rem),
+			7: (small: 1.5rem, large: 2.5rem),
+			8: (small: 2rem, large: 3.25rem),
+			9: (small: 2.5rem, large: 3.75rem)
+		)
 	)
 );

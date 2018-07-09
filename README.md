@@ -8,9 +8,9 @@ As you may expect of any sensible project, the develop branch has the latest and
 
 ## Version history
 
-### 6.1.0
+### 7.0.0
 
-Mostly tooling improvements in this update. Shouldn't break anything... hopefully. (You'll be fine so long as you've not added your own customisations to the gulpfile.)
+Mostly tooling improvements in this update. A lot of stuff has been changed, but it shouldn't break anything existent... hopefully. (You'll probably be fine.)
 
 #### Fractal
 * Add `add-fractal-component.sh` script to automate making all of the HTML, YAML, Sass and readme files that each component has. 
@@ -24,6 +24,7 @@ Mostly tooling improvements in this update. Shouldn't break anything... hopefull
 * `gulp-imagemin` has *also* been updated to the 4.x.x branch. 
 
 ### Sass
+* New spacing functions and mixins have been added to provide more consistency with spacing. [Hat tip to the GOV.UK team.](https://design-system.service.gov.uk/styles/spacing/)
 * Deleted the use of the `constant()` CSS function in the `safe-inset` Sass mixin. This was only needed for iOS 11, and was replaced by `env()` in iOS 11.2.
 
 ### JavaScript

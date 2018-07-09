@@ -47,6 +47,26 @@
 	}
 }
 
+.Fractal-SpaceSample {
+	line-height: 0;
+	&__space {
+		background-color: config(palette, neutral, lighter);
+		&--0 { @include padding-spacing(0, bottom); }
+		&--1 { @include padding-spacing(1, bottom); }
+		&--2 { @include padding-spacing(2, bottom); }
+		&--3 { @include padding-spacing(3, bottom); }
+		&--4 { @include padding-spacing(4, bottom); }
+		&--5 { @include padding-spacing(5, bottom); }
+		&--6 { @include padding-spacing(6, bottom); }
+		&--7 { @include padding-spacing(7, bottom); }
+		&--8 { @include padding-spacing(8, bottom); }
+		&--9 { @include padding-spacing(9, bottom); }
+		&:nth-child(even) {
+			background-color: config(palette, neutral, lightest);
+		}
+	}
+}
+
 .Fractal-Icon {
 	display: inline-block;
 	width: 25%;

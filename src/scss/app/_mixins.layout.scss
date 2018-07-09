@@ -1,4 +1,40 @@
 /**
+ * Use the standardised spacing options for padding.
+ */
+
+ @mixin padding-spacing($level, $side: false) {
+	$spacingSmall: spacing($level);
+	$spacingLarge: spacing($level, large);
+	$selector: 'padding';
+	@if $side { $selector: '#{$selector}-#{$side}'; }
+
+	#{$selector}: $spacingSmall;
+	@if $spacingSmall != $spacingLarge {
+		@include mq(tos) { 
+			#{$selector}: $spacingLarge;
+		}
+	}
+}
+
+/**
+ * Use the standardised spacing options for margin.
+ */
+
+@mixin margin-spacing($level, $side: false) {
+	$spacingSmall: spacing($level);
+	$spacingLarge: spacing($level, large);
+	$selector: 'margin';
+	@if $side { $selector: '#{$selector}-#{$side}'; }
+	
+	#{$selector}: $spacingSmall;
+	@if $spacingSmall != $spacingLarge {
+		@include mq(tos) { 
+			#{$selector}: $spacingLarge;
+		}
+	}
+}
+
+/**
  * Non-overflow-based clearfix (for elements that need things to be able to go outside them)
  */
 
