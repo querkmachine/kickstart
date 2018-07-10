@@ -3,50 +3,56 @@ title: Typography
 status: draft
 ---
 
-{% macro typerun(family = "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'", size = '18px', weight = 400, style = 'normal', label = 'Regular') %}
+{% macro typerun(class = '', label = '') %}
 <div class="Fractal-TypeSample">
-	<div class="Fractal-TypeSample__sample" style="font-family: {{ family }}; font-size: {{ size }};font-weight: {{ weight }}; font-style: {{ style }};">
+	<div class="Fractal-TypeSample__sample Fractal-TypeSample__sample--{{ class }}">
 		The quick brown fox jumped over the lazy dog.
 	</div>
-	<div class="Fractal-TypeSample__label">{{ label }} &mdash; size: {{ size }}, weight: {{ weight }}, style: {{ style }}</div>
+	<div class="Fractal-TypeSample__label">{{ label }}</div>
 </div>
 {% endmacro %}
 
-## Header
 
-<link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet">
+## Font
 
-This website uses [Montserrat](https://fonts.google.com/specimen/Montserrat) as the header typeface.
+[write about font family usage here]
 
-{{ typerun(label = 'Heading level 1', family = 'Montserrat', size = '96px', weight = 700) }}
-{{ typerun(label = 'Heading level 2', family = 'Montserrat', size = '80px', weight = 700) }}
-{{ typerun(label = 'Heading level 3', family = 'Montserrat', size = '48px', weight = 700) }}
-{{ typerun(label = 'Heading level 4', family = 'Montserrat', size = '36px', weight = 700) }}
-{{ typerun(label = 'Heading level 5', family = 'Montserrat', size = '24px', weight = 700) }}
-{{ typerun(label = 'Heading level 5', family = 'Montserrat', size = '20px', weight = 700) }}
-{{ typerun(label = 'Body copy', family = 'Montserrat', size = '16px') }}
-{{ typerun(label = 'Small copy', family = 'Montserrat', size = '14px') }}
+## Sizes
 
-## Body
+All font sizes follow a modular scale, with a ratio of 1.2 for small screens and 1.4 for large screens.
 
-The user's system font is used for body copy to maximise performance, as well as to make the site appear more 'native' to the user's environment. 
+This means that the leading copy style is 20 percent larger than default on small screens and 40 percent larger than default on large screens, the small heading size is 20/40 percent larger than the leading style, and so on. 
 
-{{ typerun(label = 'Heading level 1', size = '96px', weight = 700) }}
-{{ typerun(label = 'Heading level 2', size = '80px', weight = 700) }}
-{{ typerun(label = 'Heading level 3', size = '48px', weight = 700) }}
-{{ typerun(label = 'Heading level 4', size = '36px', weight = 700) }}
-{{ typerun(label = 'Heading level 5', size = '24px', weight = 700) }}
-{{ typerun(label = 'Heading level 5', size = '20px', weight = 700) }}
-{{ typerun(label = 'Body copy', size = '16px') }}
-{{ typerun(label = 'Small copy', size = '14px') }}
+### Body copy
 
-## Monospace
+The **default font size** for body copy is 1rem (16px) on small screens and 1.125rem (18px) on large screens. The majority of content on the page should be set in this size. 
 
-{{ typerun(label = 'Heading level 1', family = "Hack, Consolas, Monaco, 'Andale Mono', monospace", size = '96px', weight = 700) }}
-{{ typerun(label = 'Heading level 2', family = "Hack, Consolas, Monaco, 'Andale Mono', monospace", size = '80px', weight = 700) }}
-{{ typerun(label = 'Heading level 3', family = "Hack, Consolas, Monaco, 'Andale Mono', monospace", size = '48px', weight = 700) }}
-{{ typerun(label = 'Heading level 4', family = "Hack, Consolas, Monaco, 'Andale Mono', monospace", size = '36px', weight = 700) }}
-{{ typerun(label = 'Heading level 5', family = "Hack, Consolas, Monaco, 'Andale Mono', monospace", size = '24px', weight = 700) }}
-{{ typerun(label = 'Heading level 5', family = "Hack, Consolas, Monaco, 'Andale Mono', monospace", size = '20px', weight = 700) }}
-{{ typerun(label = 'Body copy', family = "Hack, Consolas, Monaco, 'Andale Mono', monospace", size = '16px') }}
-{{ typerun(label = 'Small copy', family = "Hack, Consolas, Monaco, 'Andale Mono', monospace", size = '14px') }}
+{{ typerun('default', 'Default') }}
+
+**Leading copy**, such as the introductory paragraph of an article, can be set in a larger size. This size should be limited to once per page at most. It's 1.2rem (19.2px) on small screens and 1.575rem (25.2px) on large screens. 
+
+{{ typerun('lead', 'Lead') }}
+
+A **smaller text** size exists for smallprint and supplementary information that doesn't require emphasis. This should be used sparingly, as it can be too small for many people to read easily. Small copy is 0.875rem (14px) on all screen sizes. 
+
+{{ typerun('small', 'Small') }}
+
+### Headers
+
+Headers should be used consistently to establish a heirarchy within the page. 
+
+**Extra large headings** exist for use in banners and marketing blocks where they can be afforded significant space and attention. They should be used sparsely for short pieces of text, and never be cramped alongside other information. XL headings are 2.986rem (47.776px) on small screens and 6.051rem (96.816px) on large screens. 
+
+{{ typerun('heading-xl', 'Extra large heading') }}
+
+**Large headings** are intended for use as the primary title of a page. They're displayed at size 2.074rem (33.184px) on small screens and size 4.322rem (69.152px) on large screens.
+
+{{ typerun('heading-l', 'Large heading') }}
+
+**Medium headings** are for use as secondary titles of a page. They're size 1.728rem (27.648px) on small screens and size 3.087rem (49.392px) on large screens.
+
+{{ typerun('heading-m', 'Medium heading') }}
+
+**Small headings** are the tertiary titles of a page. They're size 1.44rem (23.04px) on small screens and size 2.205rem (35.28px) on large screens.
+
+{{ typerun('heading-s', 'Small heading') }}

@@ -1,18 +1,19 @@
 /**
  * Get things from configuration map.
- * @param  {string}  $section  Configuration section to get.
- * @param  {string}  $key      Configuration key.
- * @param  {string}  $variant  Configuration variant.
- * @return {any}               The thing you just asked for.
+ * @param  {string}  $section     Configuration section to get.
+ * @param  {string}  $key         Configuration key.
+ * @param  {string}  $variant     Configuration variant.
+ * @param  {string}  $subvariant  Configuration variant.
+ * @return {any}                  The thing you just asked for.
  */
 
-@function config($section, $key, $variant: false) {
-	$return: false;
+@function config($section, $key, $variant: false, $subvariant: false) {
+	$return: map-get(map-get($config, $section), $key);
 	@if $variant {
-		$return: map-get(map-get(map-get($config, $section), $key), $variant);
+		$return: map-get($return, $variant);
 	}
-	@else {
-		$return: map-get(map-get($config, $section), $key);
+	@if $subvariant {
+		$return: map-get($return, $subvariant);
 	}
 	@if type_of($return) == "string" {
 		@return unquote($return);

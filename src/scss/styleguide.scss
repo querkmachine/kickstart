@@ -58,6 +58,13 @@
 	}
 	&__sample {
 		line-height: 1;
+		&--default { @include font-default; @include size-default; }
+		&--lead { @include font-default; @include size-lead; }
+		&--small { @include font-default; @include size-small; }
+		&--heading-s { @include font-header; @include size-heading-s; }
+		&--heading-m { @include font-header; @include size-heading-m; }
+		&--heading-l { @include font-header; @include size-heading-l; }
+		&--heading-xl { @include font-header; @include size-heading-xl; }
 	}
 }
 

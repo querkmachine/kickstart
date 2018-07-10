@@ -8,9 +8,20 @@ $config: (
 		voy: 1600px
 	),
 	fonts: (
-		header-font-family: "Montserrat, 'Helvetica Neue', Arial, sans-serif",
-		body-font-family: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
-		monospace-font-family: "Hack, Consolas, Monaco, 'Andale Mono', monospace"
+		stacks: (
+			header: "Montserrat, 'Helvetica Neue', Arial, sans-serif",
+			body: "-apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol'",
+			monospace: "Hack, Consolas, Monaco, 'Andale Mono', monospace"
+		),
+		sizes: (
+			default: (small: 1rem, large: 1.125rem),
+			small: .875rem,
+			lead: (small: 1.2rem, large: 1.575rem),
+			heading-s: (small: 1.44rem, large: 2.205rem),
+			heading-m: (small: 1.728rem, large: 3.087rem),
+			heading-l: (small: 2.074rem, large: 4.322rem),
+			heading-xl: (small: 2.986rem, large: 6.051rem)
+		)
 	),
 	palette: (
 		primary: (),

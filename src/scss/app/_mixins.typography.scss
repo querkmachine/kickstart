@@ -3,15 +3,15 @@
  */
 
 @mixin font-default {
-	font-family: config(fonts, body-font-family);
+	font-family: config(fonts, stacks, body);
 }
 
 @mixin font-header {
-	font-family: config(fonts, header-font-family);
+	font-family: config(fonts, stacks, header);
 }
 
 @mixin font-monospace {
-	font-family: config(fonts, monospace-font-family);
+	font-family: config(fonts, stacks, monospace);
 }
 
 /**
@@ -19,35 +19,49 @@
  */
 
 @mixin size-default {
-	font-size: rem-calc(16px);
+	font-size: config(fonts, sizes, default, small);
+	@include mq(tos) {
+		font-size: config(fonts, sizes, default, large);
+	}
 }
 
-@mixin size-h1 {
-	font-size: rem-calc(96px);
-}
-
-@mixin size-h2 {
-	font-size: rem-calc(80px);
-}
-
-@mixin size-h3 {
-	font-size: rem-calc(48px);
-}
-
-@mixin size-h4 {
-	font-size: rem-calc(36px);
-}
-
-@mixin size-h5 {
-	font-size: rem-calc(24px);
-}
-
-@mixin size-h6 {
-	font-size: rem-calc(20px);
+@mixin size-lead {
+	font-size: config(fonts, sizes, lead, small);
+	@include mq(tos) {
+		font-size: config(fonts, sizes, lead, large);
+	}
 }
 
 @mixin size-small {
-	font-size: rem-calc(14px);
+	font-size: config(fonts, sizes, small);
+}
+
+@mixin size-heading-s {
+	font-size: config(fonts, sizes, heading-s, small);
+	@include mq(tos) {
+		font-size: config(fonts, sizes, heading-s, large);
+	}
+}
+
+@mixin size-heading-m {
+	font-size: config(fonts, sizes, heading-m, small);
+	@include mq(tos) {
+		font-size: config(fonts, sizes, heading-m, large);
+	}
+}
+
+@mixin size-heading-l {
+	font-size: config(fonts, sizes, heading-l, small);
+	@include mq(tos) {
+		font-size: config(fonts, sizes, heading-l, large);
+	}
+}
+
+@mixin size-heading-xl {
+	font-size: config(fonts, sizes, heading-xl, small);
+	@include mq(tos) {
+		font-size: config(fonts, sizes, heading-xl, large);
+	}
 }
 
 @mixin size-responsive($size, $min: false, $max: false) {
