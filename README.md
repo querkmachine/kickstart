@@ -16,24 +16,24 @@ Mostly tooling improvements in this update. A lot of stuff has been changed, but
 * Add `add-fractal-component.sh` script to automate making all of the HTML, YAML, Sass and readme files that each component has. 
 * Add new `date` and `currency` Nunjucks filters for Fractal.
 * Add a bunch of documentation pages for Fractal, covering colour palettes, typography, iconography, design tokens, microcopy and the new Sass spacing mixins.
-* Add a `clean` Gulp task for easily deleting compiled assets.
 
 #### Build system
 * `gulp` has been updated. The gulpfile has been completely rewritten to accommodate the functional changes in Gulp 4.x.x and remove now unnecessary dependencies.
 * `gulp-sass` has also been updated to the 4.x.x branch.
 * `gulp-imagemin` has *also* been updated to the 4.x.x branch. 
+* Add a `clean` Gulp task for easily deleting compiled assets.
 
-### Sass
+#### Sass
 * New spacing functions and mixins have been added to provide more consistency with spacing. [Hat tip to the GOV.UK team.](https://design-system.service.gov.uk/styles/spacing/)
 * Renamed the `animation` Sass group to the more generic `aesthetic`. 
 * Turned the focus style into a mixin and placed it into a new file, `_mixins.theme.scss`. 
 * Deleted the use of the `constant()` CSS function in the `safe-inset` Sass mixin. This was only needed for iOS 11, and was replaced by `env()` in iOS 11.2.
 
-### JavaScript
+#### JavaScript
 * Added a default jshint configuration—`.jshintrc`. 
 * Deleted `App.js` as it rarely got used. `Helper.js` is now the main starting point for JS compilation.
 
-### Bugfixes
+#### Bugfixes
 * Gulp 4 allows tasks to run in series, even if they return values asyncronously. This should resolve occassional problems with certain tasks running before the tasks they were dependent on finishing. 
 * Fixed a misaligned icon in the default spritesheet.
 
