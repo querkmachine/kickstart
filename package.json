@@ -5,9 +5,7 @@
   "color": "#dddddd",
   "description": "",
   "browsers": [
-    "last 2 version",
-    "ie 10",
-    "ie 11"
+    ">0.25%"
   ],
   "private": true,
   "main": "gulpfile.js",
