@@ -7,6 +7,15 @@
 	,"app/mixins.typography"
 ;
 
+.Prose {
+	max-width: none;
+	> p,
+	> ul,
+	> li {
+		max-width: 36em;
+	}
+}
+
 .Fractal-Swatch {
 	display: inline-block;
 	width: 10rem;
@@ -90,7 +99,6 @@
 
 .Fractal-Icon {
 	display: inline-block;
-	width: 25%;
 	&__preview {
 		padding: 1rem;
 		color: #000;
@@ -100,7 +108,7 @@
 			background-color: #000;
 		}
 		svg {
-			width: 100%;
+			width: 8em;
 			height: 8em;
 		}
 	}
