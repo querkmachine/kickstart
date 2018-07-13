@@ -12,7 +12,7 @@
 	> p,
 	> ul,
 	> li {
-		max-width: 36em;
+		max-width: 34em;
 	}
 }
 
@@ -58,7 +58,6 @@
 	margin-bottom: 1rem;
 	padding: 1rem;
 	background-color: #eee;
-	white-space: nowrap;
 	overflow: hidden;
 	&__label {
 		margin-top: .5rem;
@@ -67,13 +66,23 @@
 	}
 	&__sample {
 		line-height: 1;
-		&--default { @include font-default; @include size-default; }
-		&--lead { @include font-default; @include size-lead; }
-		&--small { @include font-default; @include size-small; }
-		&--heading-s { @include font-header; @include size-heading-s; }
-		&--heading-m { @include font-header; @include size-heading-m; }
-		&--heading-l { @include font-header; @include size-heading-l; }
-		&--heading-xl { @include font-header; @include size-heading-xl; }
+		white-space: nowrap;
+		&--size-default {  @include size-default; }
+		&--size-lead {  @include size-lead; }
+		&--size-small {  @include size-small; }
+		&--size-heading-s { @include size-heading-s; }
+		&--size-heading-m { @include size-heading-m; }
+		&--size-heading-l { @include size-heading-l; }
+		&--size-heading-xl { @include size-heading-xl; }
+		&--measure-default { @include measure-default; white-space: normal; }
+		&--measure-wide { @include measure-wide; white-space: normal; }
+		&--measure-narrow { @include measure-narrow; white-space: normal; }
+		&--lead-default { @include lead-default; @include measure-default; white-space: normal; }
+		&--lead-title { @include lead-title; @include measure-default; white-space: normal; }
+		&--lead-solid { @include lead-solid; @include measure-default; white-space: normal; }
+		&--track-default { @include track-default; }
+		&--track-wide { @include track-wide; }
+		&--track-narrow { @include track-narrow; }
 	}
 }
 
