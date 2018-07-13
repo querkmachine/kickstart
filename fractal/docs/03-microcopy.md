@@ -3,7 +3,7 @@ title: Microcopy
 status: draft
 ---
 
-Microcopy is those little bits of text that litter your typical user interface—log in links, form labels, error messages, things like that. Quality microcopy is pivotal in creating an easy to use and accessible user experience. Many standards, such as the <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> accessibility guidelines *require* microcopy to reach certain standards in order to be considered good quality.
+Microcopy is those little bits of text that litter your typical user interface—log in links, form labels, error messages, things like that. Quality microcopy is pivotal in creating an easy to use and accessible user experience. Many standards, such as the <abbr title="Web Content Accessibility Guidelines">WCAG</abbr> accessibility guidelines *require* microcopy to reach certain standards in order to be considered compliant.
 
 Microcopy is often hardcoded, so it is up to you, dear developer, to make sure it’s up to par. Even if not hardcoded, working from a consistent and good quality baseline is beneficial to both the client and to users. 
 
