@@ -1,0 +1,32 @@
+status: wip
+label: WYSIWYG (Rich Text) Content
+context:
+  content: |
+    <p>Paragraph text. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptas nihil cum quae nam debitis sed ratione earum saepe cupiditate adipisci officiis rem enim fugit optio iure, maxime dolorem aperiam blanditiis?</p>
+    <p><strong>Bold copy</strong></p>
+    <p><em>Emphasised copy</em></p>
+    <p><abbr title="Abbreviated copy">Abbrv. copy</abbr></p>
+    <p><del>Deleted copy</del></p>
+    <p><ins>Inserted copy</ins></p>
+    <p><mark>Highlighted copy</mark></p>
+    <p><code>Inline code</code></p>
+    <p><a href="#" target="_blank" rel="noopener">Inline link</a></p>
+    <h1>Heading level 1</h1>
+    <h2>Heading level 2</h2>
+    <h3>Heading level 3</h3>
+    <ol>
+        <li>Ordered list</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit</li>
+        <li>Libero quas voluptates explicabo illo nostrum, ipsa unde est voluptatibus animi blanditiis magnam aliquid assumenda voluptatum quis sit quaerat eum rerum ea.</li>
+    </ol>
+    <ul>
+        <li>Unordered list</li>
+        <li>Lorem ipsum dolor sit amet, consectetur adipisicing elit.</li>
+        <li>Doloremque, modi mollitia eius repellat reprehenderit iusto suscipit dolores quaerat, quis in atque velit. Omnis ipsa architecto optio consequatur eligendi in expedita.</li>
+    </ul>
+    <dl>
+        <dt>Definition list</dt>
+        <dd>Eu ex et viverra.</dd>
+        <dt>Suspendisse porta</dt>
+        <dd>Quaerat, laboriosam numquam voluptatem facere, nesciunt debitis animi repellat quod qui, ab quae necessitatibus dolores provident non velit unde et rerum illum.</dd>
+    </dl>

@@ -1,0 +1,46 @@
+.a-wysiwyg {
+    @include font-default;
+    @include lead-default;
+    p,
+    ul,
+    ol,
+    dl {
+        @include measure-default;
+        @include margin-spacing(4, top);
+        @include margin-spacing(4, bottom);
+        &:first-child { @include margin-spacing(0, top); }
+        &:last-child { @include margin-spacing(0, bottom); }
+    }
+    ul,
+    ol {
+        @include padding-spacing(9, left);
+    }
+    h1,
+    h2,
+    h3 {
+        @include font-header;
+        @include lead-title;
+    }
+    h1 {
+        @include size-heading-l;
+    }
+    h2 {
+        @include size-heading-m;
+    }
+    h3 {
+        @include size-heading-s;
+    }
+    abbr {
+        text-decoration: underline dotted;
+    }
+    code {
+        background-color: config(palette, neutral, lightest);
+    }
+    dt {
+        @include margin-spacing(2, top);
+        font-weight: 700;
+    }
+    dd {
+        @include padding-spacing(9, left);
+    }
+}
