@@ -287,6 +287,7 @@ fractal.web.set('builder.dest', 'components');
 fractal.web.theme(mandelbrot({
 	'skin': 'black',
 	'nav': ['docs', 'components'],
+	'panels': ['notes', 'view', 'html', 'context', 'resources', 'info'],
 	'styles': ['default', '/css/styleguide.css'],
 	'format': 'yaml'
 }));
