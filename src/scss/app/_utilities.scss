@@ -1,0 +1,22 @@
+.u-screenreader {
+	@include hidden;
+}
+
+@each $side in ('', top, right, bottom, left) {
+	@for $i from 0 through 9 {
+		$marginSelector: 'u-!-margin';
+		$paddingSelector: 'u-!-padding';
+		@if $side != '' {
+			$marginSelector: $marginSelector + '-#{$side}';
+			$paddingSelector: $paddingSelector + '-#{$side}';
+		}
+		$marginSelector: $marginSelector + '-#{$i}';
+		$paddingSelector: $paddingSelector + '-#{$i}';
+		[class*='#{$marginSelector}'] {
+			@include margin-spacing($i, $side, true);
+		}
+		[class*='#{$paddingSelector}'] {
+			@include padding-spacing($i, $side, true);
+		}
+	}
+}
