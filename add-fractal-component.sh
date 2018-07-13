@@ -21,4 +21,16 @@ touch "$COMPONENT_PATH/$COMPONENT_NAME.html"
 touch "$COMPONENT_PATH/$COMPONENT_NAME.config.yml"
 touch "$COMPONENT_PATH/readme.md"
 
+cat <<EOF > "$COMPONENT_PATH/readme.md"
+## When to use this component
+
+## When to consider something else
+
+## Guidance
+
+## Accessibility
+
+## Browser considerations
+EOF
+
 touch "$SASS_PATH/$COMPONENT_TYPE/_$COMPONENT_NAME.scss"
