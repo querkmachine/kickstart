@@ -38,7 +38,6 @@ gulp.task('sass:lint', () => {
 	'use strict';
 	const sassLint = require('gulp-sass-lint');
 	return gulp.src('./src/scss/{,*/}*.scss')
-	.pipe(plumber())
 	.pipe(sassLint())
 	.pipe(sassLint.format())
 	.pipe(sassLint.failOnError());
