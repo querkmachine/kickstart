@@ -17,6 +17,20 @@
 	table {
 		max-width: 48em;
 	}
+	kbd {
+		@include lead-default;
+		display: inline-block;
+		min-width: 1.5rem;
+		padding-right: .25rem;
+		padding-left: .25rem;
+		border-radius: 3px;
+		background-color: #fff;
+		font-size: .85em;
+		font-family: inherit;
+		font-weight: inherit;
+		text-align: center;
+		box-shadow: 0 0 0 1px config(palette, neutral, lighter), 0 2px 0 0 #fff, 0 2px 0 1px config(palette, neutral, lighter);
+	}
 }
 
 .Fractal-Swatch {
