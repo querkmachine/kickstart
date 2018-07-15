@@ -1,0 +1,5 @@
+<div class="Navigation-group">
+    <div class="Fractal-Search">
+        <input class="Fractal-Search__input" type="search" id="kimsFractalSearch" placeholder="Search">
+    </div>
+</div>
