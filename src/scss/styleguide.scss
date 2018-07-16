@@ -147,3 +147,11 @@
 	column-width: 15em; 
 	column-gap: 1rem;
 }
+
+.Fractal-Search {
+	margin: 0 1rem;
+	&__input {
+		width: 100%;
+		font: normal 0.875rem/1.71429 "Open Sans", Helvetica, Arial, sans-serif;
+	}
+}

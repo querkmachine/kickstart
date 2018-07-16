@@ -49,7 +49,7 @@ gulp.task('sass:lint', () => {
 
 gulp.task('js:vendor', () => {
 	'use strict';
-	const folders = ['preload', 'vendor'];
+	const folders = ['preload', 'vendor', 'fractal'];
 	const tasks = folders.map((folder) => {
 		return gulp.src(`./src/js/${folder}/**/*.js`, {
 			base: `./src/js/${folder}`
@@ -283,13 +283,17 @@ fractal.docs.set('path', path.join(__dirname, 'fractal/docs'));
 fractal.docs.set('default.status', 'draft');
 fractal.web.set('static.path', 'dst');
 fractal.web.set('builder.dest', 'components');
-fractal.web.theme(mandelbrot({
+const customMandelbrot = mandelbrot({
 	'skin': 'black',
-	'nav': ['docs', 'components'],
+	'nav': ['search', 'docs', 'components'],
 	'panels': ['notes', 'view', 'html', 'context', 'resources', 'info'],
 	'styles': ['default', '/css/styleguide.css'],
+	'scripts': ['default', '/js/fractal.js'],
 	'format': 'yaml'
-}));
+});
+console.log(__dirname);
+customMandelbrot.addLoadPath(__dirname + '/fractal/views');  
+fractal.web.theme(customMandelbrot);
 
 gulp.task('fractal:watch', () => {
 	'use strict';
