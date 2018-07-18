@@ -2,14 +2,14 @@
  * Use the standardised spacing options for padding.
  */
 
- @mixin padding-spacing($level, $side: false, $important: false) {
+@mixin padding-spacing($level, $side: false, $isImportant: false) {
 	$spacingSmall: spacing($level);
 	$spacingLarge: spacing($level, large);
 	$selector: 'padding';
 	$important: '';
 	@if $side and $side != '' { $selector: '#{$selector}-#{$side}'; }
-	@if $important { $important: ' !important'; }
-
+	@if $isImportant { $important: ' !important'; }
+	@debug $important; 
 	#{$selector}: #{$spacingSmall}#{$important};
 	@if $spacingSmall != $spacingLarge {
 		@include mq(tos) { 
@@ -22,14 +22,14 @@
  * Use the standardised spacing options for margin.
  */
 
-@mixin margin-spacing($level, $side: false, $important: false) {
+@mixin margin-spacing($level, $side: false, $isImportant: false) {
 	$spacingSmall: spacing($level);
 	$spacingLarge: spacing($level, large);
 	$selector: 'margin';
 	$important: '';
 	@if $side and $side != '' { $selector: '#{$selector}-#{$side}'; }
-	@if $important { $important: ' !important'; }
-	
+	@if $isImportant { $important: ' !important'; }
+	@debug $important; 
 	#{$selector}: #{$spacingSmall}#{$important};
 	@if $spacingSmall != $spacingLarge {
 		@include mq(tos) { 
