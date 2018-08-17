@@ -9,7 +9,6 @@
 	$important: '';
 	@if $side and $side != '' { $selector: '#{$selector}-#{$side}'; }
 	@if $isImportant { $important: ' !important'; }
-	@debug $important; 
 	#{$selector}: #{$spacingSmall}#{$important};
 	@if $spacingSmall != $spacingLarge {
 		@include mq(tos) { 
@@ -29,7 +28,6 @@
 	$important: '';
 	@if $side and $side != '' { $selector: '#{$selector}-#{$side}'; }
 	@if $isImportant { $important: ' !important'; }
-	@debug $important; 
 	#{$selector}: #{$spacingSmall}#{$important};
 	@if $spacingSmall != $spacingLarge {
 		@include mq(tos) { 
