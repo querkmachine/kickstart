@@ -8,6 +8,13 @@ As you may expect of any sensible project, the develop branch has the latest and
 
 ## Version history
 
+### 7.1.0
+
+A bit of a maintenace update, some minor new features, those kinds of things.
+
+* Updated nearly all of the npm packages to patch some security issues. 
+  * Swapped out `babel-core` and `babel-preset-env` packages for `@babel/core` and `@babel/preset-env` respectively, as required by the newest version of `gulp-babel`, and updated the gulpfile respectively.
+
 ### 7.0.0
 
 Mostly tooling improvements in this update. A lot of stuff has been changed, but it shouldn't break anything existent... hopefully. (You'll probably be fine.)

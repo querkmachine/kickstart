@@ -71,14 +71,8 @@ gulp.task('js', gulp.parallel('js:vendor', () => {
 		.pipe(sourcemaps.init())
 		.pipe(concat(`${folder}.js`))
 		.pipe(babel({
-			presets: [
-				['env', {
-					'targets': {
-						'browsers': config.browsers
-					}
-				}]
-			]
-		}))
+            presets: ['@babel/env']
+        }))
 		.pipe(sourcemaps.write())
 		.pipe(gulp.dest('./dst/js'));
 	});
