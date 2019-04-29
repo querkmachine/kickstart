@@ -14,7 +14,8 @@ A bit of a maintenace update, some minor new features, those kinds of things.
 
 * Updated nearly all of the npm packages to patch some security issues. 
   * Swapped out `babel-core` and `babel-preset-env` packages for `@babel/core` and `@babel/preset-env` respectively, as required by the newest version of `gulp-babel`, and updated the gulpfile respectively.
-* Removed line of code that added a `.js` class to the page, as this was duplicating functionality from the Modernizr file.
+* Bumped jQuery version.
+* Removed line of code that added a `.js` HTML class to the page, as this was duplicating functionality from the Modernizr file.
 
 ### 7.0.0
 
