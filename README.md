@@ -8,6 +8,11 @@ As you may expect of any sensible project, the develop branch has the latest and
 
 ## Version history
 
+### 7.1.1
+
+* The `package.json` file got all messed up so I had to fix it. 
+* Changed "browsers" config to "browserslist" as per recent Autoprefixer and Babel updates.
+
 ### 7.1.0
 
 A bit of a maintenace update, some minor new features, those kinds of things.

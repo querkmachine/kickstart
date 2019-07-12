@@ -28,9 +28,7 @@ gulp.task('sass', () => {
 	.pipe(sass({
 		outputStyle: 'compressed'
 	}))
-	.pipe(autoprefixer({
-		browsers: config.browsers
-	}))
+	.pipe(autoprefixer())
 	.pipe(gulp.dest('./dst/css'));
 });
 
