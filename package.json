@@ -1,12 +1,11 @@
 {
   "name": "Kickstart",
-  "version": "6.0.0",
+  "formattedName": "Kickstart",
+  "version": "7.1.0",
   "color": "#dddddd",
   "description": "",
   "browsers": [
-    "last 2 version",
-    "ie 10",
-    "ie 11"
+    ">0.25%"
   ],
   "private": true,
   "main": "gulpfile.js",
@@ -23,10 +22,11 @@
   "homepage": "https://github.com/querkmachine/kickstart",
   "devDependencies": {
     "@babel/core": "^7.5.4",
-    "@babel/preset-env": "^7.5.4",
     "@frctl/fractal": "^1.1.7",
     "@frctl/mandelbrot": "^1.2.1",
     "@frctl/nunjucks": "^2.0.1",
+    "babel-core": "^6.26.3",
+    "babel-preset-env": "^1.7.0",
     "fsevents": "^2.0.7",
     "gifsicle": "^4.0.1",
     "gulp": "^4.0.2",
