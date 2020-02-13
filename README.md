@@ -1,5 +1,7 @@
 # Kickstart
 
+***This project is no longer under active development. I've replaced it with the appropriately titled [Kickstart8](https://github.com/querkmachine/kickstart8), which is the same idea but it works in an almost entirely different way.**
+
 Kickstart is my boilerplate code for new projects. It provides a basic "chrome" page with various common features, as well as an atomic Sass framework, Fractal-based component library and a Gulp toolchain. It also features a bunch of boilerplate code that I usually end up including into projects anyway. 
 
 **This is *my* boilerplate. It's very opinionated towards how I tend to do things, so there's no guarantee that it'll be useful to you!** Feel free to use it as a learning experience, however! 
